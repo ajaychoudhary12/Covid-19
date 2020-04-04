@@ -21,7 +21,17 @@ class StatsHeaderView: UICollectionReusableView {
   private let cornerRadius: CGFloat = 20
   private let pageControl = UIPageControl()
   private let cellId = "cellid"
-    
+  private var countryDataArray = [CountryDataCard]()
+  
+  var stateDataArray: [StateData]? {
+    didSet {
+      guard let stateDataArray = stateDataArray else { return }
+      guard stateDataArray.count != 0 else { return }
+      self.countryDataArray = makeCountryData(state: stateDataArray[0])
+      collectionView.reloadData()
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
@@ -74,7 +84,7 @@ class StatsHeaderView: UICollectionReusableView {
     
     collectionView.showsVerticalScrollIndicator = false
     collectionView.showsHorizontalScrollIndicator = false
-    collectionView.register(StatsHeaderViewCell.self, forCellWithReuseIdentifier: cellId)
+    collectionView.register(StatsHeaderCell.self, forCellWithReuseIdentifier: cellId)
   }
   
   private func setupPageControl() {
@@ -84,7 +94,7 @@ class StatsHeaderView: UICollectionReusableView {
     let centerX = pageControl.centerXAnchor.constraint(equalTo: centerXAnchor)
     let width = pageControl.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.40)
     let height = pageControl.heightAnchor.constraint(equalToConstant: 40)
-    let bottom = pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -22)
+    let bottom = pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
     NSLayoutConstraint.activate([centerX, width, height, bottom])
 
     pageControl.currentPage = 0
@@ -92,15 +102,25 @@ class StatsHeaderView: UICollectionReusableView {
     pageControl.currentPageIndicatorTintColor = .darkGray
     pageControl.pageIndicatorTintColor = .white
   }
+  
+  private func makeCountryData(state: StateData) -> [CountryDataCard]{
+    return [
+      CountryDataCard(status: "Confirmed", count: state.confirmed),
+      CountryDataCard(status: "Active", count: state.active),
+      CountryDataCard(status: "Recovered", count: state.recovered),
+      CountryDataCard(status: "Death", count: state.deaths)
+    ]
+  }
 }
 
 extension StatsHeaderView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    return countryDataArray.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StatsHeaderViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StatsHeaderCell
+    cell.countryDataCard = self.countryDataArray[indexPath.row]
     switch indexPath.row {
     case 0:
       cell.backgroundColor = .systemPink

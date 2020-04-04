@@ -14,11 +14,11 @@ class StateCell: UICollectionViewCell {
   private let countLabel = UILabel()
   private let cornerRadius: CGFloat = 12
   
-  var state: String? {
+  var stateData: StateData? {
     didSet {
-      guard let state = state else { return }
-      self.stateNameLabel.text = state.uppercased()
-      self.countLabel.text = "\(state.count)"
+      guard let stateData = stateData else { return }
+      self.stateNameLabel.text = stateData.state
+      self.countLabel.text = stateData.confirmed
     }
   }
   
@@ -61,6 +61,7 @@ class StateCell: UICollectionViewCell {
     
     stateNameLabel.font = .boldSystemFont(ofSize: 18)
     stateNameLabel.textColor = .systemBlue
+    stateNameLabel.numberOfLines = 0
   }
   
   private func setupCountLabel() {
@@ -68,9 +69,9 @@ class StateCell: UICollectionViewCell {
     countLabel.translatesAutoresizingMaskIntoConstraints = false
     
     let height = countLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
-    let trailing = countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+    let trailing = countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22)
     let centerY = countLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let width = countLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
+    let width = countLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2)
     NSLayoutConstraint.activate([height, trailing, centerY, width])
     
     countLabel.font = .boldSystemFont(ofSize: 18)

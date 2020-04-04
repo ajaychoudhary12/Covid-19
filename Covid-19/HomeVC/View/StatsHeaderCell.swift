@@ -15,16 +15,17 @@ class StatsHeaderCell: UICollectionViewCell {
   let casesCountLabel = UILabel()
   private let chart = Chart(frame: .zero)
   
+  var countryDataCard: CountryDataCard? {
+    didSet {
+      guard let countryDataCard = countryDataCard else { return }
+      self.casesLabel.text = countryDataCard.status
+      self.casesCountLabel.text = countryDataCard.count
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
-    
-//  Debugging
-//    casesLabel.backgroundColor = .white
-//    casesCountLabel.backgroundColor = .lightGray
-//
-//    casesLabel.backgroundColor = .black
-//    casesCountLabel.textColor = .black
   }
   
   required init?(coder: NSCoder) {
@@ -46,8 +47,7 @@ class StatsHeaderCell: UICollectionViewCell {
     let width = casesLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4)
     let height = casesLabel.heightAnchor.constraint(equalToConstant: 36)
     NSLayoutConstraint.activate([top, leading, width, height])
-      
-    casesLabel.text = "Confirmed"
+    
     casesLabel.textColor = .white
     casesLabel.font = .systemFont(ofSize: 24)
   }
@@ -62,7 +62,6 @@ class StatsHeaderCell: UICollectionViewCell {
     let height = casesCountLabel.heightAnchor.constraint(equalToConstant: 40)
     NSLayoutConstraint.activate([top, leading, width, height])
       
-    casesCountLabel.text = "2032"
     casesCountLabel.textColor = .white
     casesCountLabel.font = .systemFont(ofSize: 36)
   }

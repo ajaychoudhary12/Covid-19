@@ -20,8 +20,11 @@ class StatsHeaderCell: UICollectionViewCell {
       guard let countryDataCard = countryDataCard else { return }
       self.casesLabel.text = countryDataCard.status.rawValue
       self.casesCountLabel.text = countryDataCard.count
+      self.populateChart(countryDataCard: countryDataCard)
     }
   }
+  
+  var chartData: CountryChartData?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -80,14 +83,17 @@ class StatsHeaderCell: UICollectionViewCell {
     chart.showXLabelsAndGrid = false
     chart.showYLabelsAndGrid = false
     chart.isUserInteractionEnabled = false
-    
-    let series = self.makeSeries(array: [4, 19, 12, 10, 17, 12, 12, 18, 14, 7, 11, 12, 28])
-    self.chart.add(series)
-    self.chart.reloadInputViews()
+  }
+  
+  private func populateChart(countryDataCard: CountryDataCard) {
+    guard let stringArray = countryDataCard.chartData else { return }
+    chart.removeAllSeries()
+    chart.add(makeSeries(array: stringArray))
+    chart.reloadInputViews()
   }
 
-  private func makeSeries(array: [Double]) -> ChartSeries{
-    let series = ChartSeries(array)
+  private func makeSeries(array: [String]) -> ChartSeries {
+    let series = ChartSeries(array.compactMap(Double.init))
     series.color = .white
     return series
   }

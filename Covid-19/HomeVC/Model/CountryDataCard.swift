@@ -11,4 +11,5 @@ import Foundation
 struct CountryDataCard {
   let status: CountryDataCardState
   let count: String
+  let chartData: [String]?
 }

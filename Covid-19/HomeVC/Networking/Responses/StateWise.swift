@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StateData: Codable {
+struct StateData: Codable {
   let active: String
   let confirmed: String
   let deaths: String

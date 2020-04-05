@@ -10,8 +10,10 @@ import Foundation
 
 class StateWiseCases: Codable {
   let stateDataArray: [StateData]
+  let caseTimeSeries: [CaseTimeSerie]
   
   enum CodingKeys: String, CodingKey {
     case stateDataArray = "statewise"
+    case caseTimeSeries = "cases_time_series"
   }
 }

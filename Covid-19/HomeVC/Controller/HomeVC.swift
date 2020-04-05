@@ -28,6 +28,24 @@ class HomeVC: UIViewController {
   private var stateDataArray = [StateData]()
   private var countryDataCardState = CountryDataCardState.confirmed
   
+  private var countryChartData = CountryChartData()
+  
+  private var caseTimeSeries = [CaseTimeSerie]() {
+    didSet {
+      var confirmedChartData = [String]()
+      var recoveredChartData = [String]()
+      var deathsChartData = [String]()
+      for caseTimeSerie in caseTimeSeries {
+        confirmedChartData.append(caseTimeSerie.totalConfirmed)
+        recoveredChartData.append(caseTimeSerie.totalRecovered)
+        deathsChartData.append(caseTimeSerie.totalDeaths)
+      }
+      self.countryChartData = CountryChartData(confirmedChartData: confirmedChartData,
+                                               recoveredChartData: recoveredChartData,
+                                               deathsChartData: deathsChartData)
+    }
+  }
+  
   override func loadView() {
     super.loadView()
     setupView()
@@ -41,13 +59,14 @@ class HomeVC: UIViewController {
     CovidClient.fetchTimeSeriesAndStateWiseStats(completion: handleStateData)
   }
   
-  private func handleStateData(stateData: [StateData], error: ErrorMessage?) {
+  private func handleStateData(stateData: [StateData], caseTimeSeries: [CaseTimeSerie], error: ErrorMessage?) {
     if error != nil {
       DispatchQueue.main.async { self.loadingData(false) }
       self.presentCustomAlertOnMainThread(title: "Bad stuff Happened", message: error!.rawValue, delegate: self)
       return
     }
     self.stateDataArray = stateData
+    self.caseTimeSeries = caseTimeSeries
     DispatchQueue.main.async {
       self.collectionView.reloadData()
       self.loadingData(false)
@@ -150,6 +169,7 @@ extension HomeVC: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     if indexPath.section == 0 {
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: statsHeaderId, for: indexPath) as! StatsHeaderView
+      headerView.countryChartData = countryChartData
       headerView.stateDataArray = stateDataArray
       headerView.delegate = self
       return headerView

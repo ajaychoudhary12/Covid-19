@@ -22,6 +22,8 @@
 		2D2997B3243625D300AB4C7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D2997B1243625D300AB4C7A /* LaunchScreen.storyboard */; };
 		2D2997BF2436288300AB4C7A /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2997BE2436288300AB4C7A /* StatsHeaderView.swift */; };
 		2D3F2E252439804C00BAE875 /* ActivityIndicatorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F2E242439804C00BAE875 /* ActivityIndicatorContainer.swift */; };
+		2D3F2E272439B0E800BAE875 /* CaseTimeSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F2E262439B0E800BAE875 /* CaseTimeSerie.swift */; };
+		2D3F2E2A2439CCDE00BAE875 /* CountryChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F2E292439CCDE00BAE875 /* CountryChartData.swift */; };
 		2D6B9E42243723E0002AB29D /* StateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B9E41243723E0002AB29D /* StateCell.swift */; };
 		2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */; };
 		2DEC22622438FB13005A5FDA /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC22612438FB13005A5FDA /* CustomAlertVC.swift */; };
@@ -46,6 +48,8 @@
 		2D2997B4243625D300AB4C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D2997BE2436288300AB4C7A /* StatsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
 		2D3F2E242439804C00BAE875 /* ActivityIndicatorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorContainer.swift; sourceTree = "<group>"; };
+		2D3F2E262439B0E800BAE875 /* CaseTimeSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTimeSerie.swift; sourceTree = "<group>"; };
+		2D3F2E292439CCDE00BAE875 /* CountryChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryChartData.swift; sourceTree = "<group>"; };
 		2D6B9E41243723E0002AB29D /* StateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCell.swift; sourceTree = "<group>"; };
 		2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeadingView.swift; sourceTree = "<group>"; };
 		2DEC22612438FB13005A5FDA /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				2D25ECA424382B40007BD169 /* CovidClient.swift */,
+				2D3F2E282439CBE300BAE875 /* Responses */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -131,10 +136,9 @@
 		2D2997BB2436285E00AB4C7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2D25ECA624382DBC007BD169 /* StateWiseCases.swift */,
-				2D25ECA824382DEC007BD169 /* StateWise.swift */,
 				2D25ECAE2438600F007BD169 /* CountryDataCard.swift */,
 				2D25ECB024389EAB007BD169 /* CountryDataCardState.swift */,
+				2D3F2E292439CCDE00BAE875 /* CountryChartData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +160,16 @@
 				2D2997AA243625CD00AB4C7A /* HomeVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D3F2E282439CBE300BAE875 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				2D3F2E262439B0E800BAE875 /* CaseTimeSerie.swift */,
+				2D25ECA824382DEC007BD169 /* StateWise.swift */,
+				2D25ECA624382DBC007BD169 /* StateWiseCases.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		8A549917EE2FFEBAC33D11C7 /* Frameworks */ = {
@@ -294,12 +308,14 @@
 				2D6B9E42243723E0002AB29D /* StateCell.swift in Sources */,
 				2D25ECB124389EAB007BD169 /* CountryDataCardState.swift in Sources */,
 				2D25ECAB24385745007BD169 /* StatsHeaderCell.swift in Sources */,
+				2D3F2E2A2439CCDE00BAE875 /* CountryChartData.swift in Sources */,
 				2D25ECA924382DEC007BD169 /* StateWise.swift in Sources */,
 				2D25ECA724382DBC007BD169 /* StateWiseCases.swift in Sources */,
 				2D25ECB42438DAD8007BD169 /* ErrorMessage.swift in Sources */,
 				2D2997AB243625CD00AB4C7A /* HomeVC.swift in Sources */,
 				2D2997A7243625CD00AB4C7A /* AppDelegate.swift in Sources */,
 				2DEC22622438FB13005A5FDA /* CustomAlertVC.swift in Sources */,
+				2D3F2E272439B0E800BAE875 /* CaseTimeSerie.swift in Sources */,
 				2D2997A9243625CD00AB4C7A /* SceneDelegate.swift in Sources */,
 				2D25ECAF24386010007BD169 /* CountryDataCard.swift in Sources */,
 				2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */,

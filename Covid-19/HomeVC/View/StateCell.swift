@@ -22,6 +22,22 @@ class StateCell: UICollectionViewCell {
     }
   }
   
+  var countryDataCardState: CountryDataCardState? {
+    didSet {
+      guard let countryDataCardState = countryDataCardState else { return }
+      switch countryDataCardState {
+      case .confirmed:
+        self.countLabel.text = stateData?.confirmed
+      case.active:
+        self.countLabel.text = stateData?.active
+      case.recovered:
+        self.countLabel.text = stateData?.recovered
+      case.deaths:
+        self.countLabel.text = stateData?.deaths
+      }
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
@@ -56,10 +72,10 @@ class StateCell: UICollectionViewCell {
     let height = stateNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
     let leading = stateNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12)
     let centerY = stateNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let width = stateNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7)
+    let width = stateNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6)
     NSLayoutConstraint.activate([height, leading, centerY, width])
     
-    stateNameLabel.font = .boldSystemFont(ofSize: 18)
+    stateNameLabel.font = .boldSystemFont(ofSize: 17)
     stateNameLabel.textColor = .systemBlue
     stateNameLabel.numberOfLines = 0
   }
@@ -71,10 +87,13 @@ class StateCell: UICollectionViewCell {
     let height = countLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
     let trailing = countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22)
     let centerY = countLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let width = countLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2)
+    let width = countLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3)
     NSLayoutConstraint.activate([height, trailing, centerY, width])
     
-    countLabel.font = .boldSystemFont(ofSize: 18)
+    countLabel.adjustsFontSizeToFitWidth = true
+    countLabel.minimumScaleFactor = 0.8
+    
+    countLabel.font = .boldSystemFont(ofSize: 17)
     countLabel.textAlignment = .right
     countLabel.textColor = .systemBlue
   }

@@ -18,7 +18,7 @@ class StatsHeaderCell: UICollectionViewCell {
   var countryDataCard: CountryDataCard? {
     didSet {
       guard let countryDataCard = countryDataCard else { return }
-      self.casesLabel.text = countryDataCard.status
+      self.casesLabel.text = countryDataCard.status.rawValue
       self.casesCountLabel.text = countryDataCard.count
     }
   }

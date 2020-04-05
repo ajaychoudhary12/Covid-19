@@ -1,5 +1,5 @@
 //
-//  tableHeadingView.swift
+//  TableHeadingView.swift
 //  Covid-19
 //
 //  Created by Ajay Choudhary on 03/04/20.
@@ -15,6 +15,13 @@ class TableHeadingView: UICollectionReusableView {
   private let cornerRadius: CGFloat = 12
   private let containerView = UIView()
   private let parentContainerView = UIView()
+  
+  var countryDataCardState: CountryDataCardState? {
+    didSet {
+      guard let countryDataCardState = countryDataCardState else { return }
+      confirmedLabel.text = countryDataCardState.rawValue.uppercased()
+    }
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)

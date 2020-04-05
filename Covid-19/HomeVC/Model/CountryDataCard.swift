@@ -9,6 +9,6 @@
 import Foundation
 
 struct CountryDataCard {
-  let status: String
+  let status: CountryDataCardState
   let count: String
 }

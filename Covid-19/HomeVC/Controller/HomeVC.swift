@@ -17,26 +17,64 @@ class HomeVC: UIViewController {
     return collectionView
   }()
   
+  private var activityIndicatorContainer: UIView!
+  private var activityIndicator: UIActivityIndicatorView!
+  
   private let topView = UIView()
   private let cellId = "cellid"
   private let statsHeaderId = "statsheaderid"
   private let tableHeaderId = "tableheaderid"
   private var isAboveTableHeading = true
   private var stateDataArray = [StateData]()
+  private var countryDataCardState = CountryDataCardState.confirmed
   
   override func loadView() {
     super.loadView()
     setupView()
-    CovidClient.fetchTimeSeriesAndStateWiseStats { (stateData) in
-      self.stateDataArray = stateData
+    fetchData()
+  }
+  
+  // MARK: - NetworkCalls
+  
+  private func fetchData() {
+    loadingData(true)
+    CovidClient.fetchTimeSeriesAndStateWiseStats(completion: handleStateData)
+  }
+  
+  private func handleStateData(stateData: [StateData], error: ErrorMessage?) {
+    if error != nil {
+      DispatchQueue.main.async { self.loadingData(false) }
+      self.presentCustomAlertOnMainThread(title: "Bad stuff Happened", message: error!.rawValue, delegate: self)
+      return
+    }
+    self.stateDataArray = stateData
+    DispatchQueue.main.async {
       self.collectionView.reloadData()
+      self.loadingData(false)
     }
   }
+  
+  // MARK: - SetupView
   
   private func setupView() {
     view.backgroundColor = .systemGroupedBackground
     setupTopView()
     setupCollectionView()
+    setupActivityIndicator()
+  }
+  
+  private func setupActivityIndicator() {
+    activityIndicatorContainer = ActivityIndicatorContainer(view: view)
+    
+    activityIndicator = UIActivityIndicatorView()
+    activityIndicator.hidesWhenStopped = true
+    activityIndicator.style = UIActivityIndicatorView.Style.large
+    activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+    activityIndicatorContainer.addSubview(activityIndicator)
+    view.addSubview(activityIndicatorContainer)
+    
+    activityIndicator.centerXAnchor.constraint(equalTo: activityIndicatorContainer.centerXAnchor).isActive = true
+    activityIndicator.centerYAnchor.constraint(equalTo: activityIndicatorContainer.centerYAnchor).isActive = true
   }
   
   private func setupTopView() {
@@ -75,6 +113,20 @@ class HomeVC: UIViewController {
 
     if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout { layout.sectionHeadersPinToVisibleBounds = false }
   }
+  
+  private func loadingData(_ loadingData: Bool) {
+    if loadingData {
+      activityIndicator.startAnimating()
+      collectionView.isScrollEnabled = false
+      collectionView.isUserInteractionEnabled = false
+    } else {
+      activityIndicator.stopAnimating()
+      activityIndicatorContainer.removeFromSuperview()
+      collectionView.isScrollEnabled = true
+      collectionView.isUserInteractionEnabled = true
+    }
+  }
+  
 }
 
 extension HomeVC: UICollectionViewDataSource {
@@ -89,6 +141,7 @@ extension HomeVC: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StateCell
     cell.stateData = stateDataArray[indexPath.row + 1]
+    cell.countryDataCardState = self.countryDataCardState
     return cell
   }
   
@@ -98,9 +151,11 @@ extension HomeVC: UICollectionViewDataSource {
     if indexPath.section == 0 {
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: statsHeaderId, for: indexPath) as! StatsHeaderView
       headerView.stateDataArray = stateDataArray
+      headerView.delegate = self
       return headerView
     } else {
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: tableHeaderId, for: indexPath) as! TableHeadingView
+      headerView.countryDataCardState = self.countryDataCardState
       return headerView
     }
   }
@@ -124,7 +179,6 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
 extension HomeVC: UIScrollViewDelegate {
 
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
     let height: CGFloat = 280
     let y = scrollView.contentOffset.y
 
@@ -139,7 +193,21 @@ extension HomeVC: UIScrollViewDelegate {
       }
       isAboveTableHeading = true
     }
-
   }
 
+}
+
+extension HomeVC: ChangeCountFieldDelegate {
+  func changeCountFieldData(countryDataCardState: CountryDataCardState) {
+    self.countryDataCardState = countryDataCardState
+    collectionView.reloadData()
+  }
+}
+
+extension HomeVC: RefreshHomeDelegate {
+  func refresh() {
+    setupActivityIndicator()
+    activityIndicator.startAnimating()
+    fetchData()
+  }
 }

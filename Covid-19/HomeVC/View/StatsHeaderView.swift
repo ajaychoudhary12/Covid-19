@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ChangeCountFieldDelegate {
+  func changeCountFieldData(countryDataCardState: CountryDataCardState)
+}
+
 class StatsHeaderView: UICollectionReusableView {
   
   private let collectionView: UICollectionView = {
@@ -22,6 +26,7 @@ class StatsHeaderView: UICollectionReusableView {
   private let pageControl = UIPageControl()
   private let cellId = "cellid"
   private var countryDataArray = [CountryDataCard]()
+  var delegate: ChangeCountFieldDelegate?
   
   var stateDataArray: [StateData]? {
     didSet {
@@ -78,6 +83,7 @@ class StatsHeaderView: UICollectionReusableView {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.isPagingEnabled = true
+    collectionView.backgroundColor = .systemGroupedBackground
     
     collectionView.layer.cornerRadius = cornerRadius
     collectionView.clipsToBounds = true
@@ -99,16 +105,16 @@ class StatsHeaderView: UICollectionReusableView {
 
     pageControl.currentPage = 0
     pageControl.numberOfPages = 4
-    pageControl.currentPageIndicatorTintColor = .darkGray
+    pageControl.currentPageIndicatorTintColor = .black
     pageControl.pageIndicatorTintColor = .white
   }
   
   private func makeCountryData(state: StateData) -> [CountryDataCard]{
     return [
-      CountryDataCard(status: "Confirmed", count: state.confirmed),
-      CountryDataCard(status: "Active", count: state.active),
-      CountryDataCard(status: "Recovered", count: state.recovered),
-      CountryDataCard(status: "Death", count: state.deaths)
+      CountryDataCard(status: .confirmed, count: state.confirmed),
+      CountryDataCard(status: .active, count: state.active),
+      CountryDataCard(status: .recovered, count: state.recovered),
+      CountryDataCard(status: .deaths, count: state.deaths)
     ]
   }
 }
@@ -149,6 +155,20 @@ extension StatsHeaderView: UICollectionViewDelegateFlowLayout, UICollectionViewD
   func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     let x = targetContentOffset.pointee.x
     let currentPage = Int(x / collectionView.frame.width)
+    
+    switch currentPage {
+    case 0:
+      delegate?.changeCountFieldData(countryDataCardState: .confirmed)
+    case 1:
+      delegate?.changeCountFieldData(countryDataCardState: .active)
+    case 2:
+      delegate?.changeCountFieldData(countryDataCardState: .recovered)
+    case 3:
+      delegate?.changeCountFieldData(countryDataCardState: .deaths)
+    default:
+      delegate?.changeCountFieldData(countryDataCardState: .confirmed)
+    }
+    
     pageControl.currentPage = currentPage
   }
 }

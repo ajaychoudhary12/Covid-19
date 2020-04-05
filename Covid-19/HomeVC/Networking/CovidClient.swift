@@ -10,22 +10,32 @@ import Foundation
 
 class CovidClient {
   
-  class func fetchTimeSeriesAndStateWiseStats(completion: @escaping ([StateData]) -> Void) {
+  class func fetchTimeSeriesAndStateWiseStats(completion: @escaping ([StateData], ErrorMessage?) -> Void) {
+    
     let urlString = "https://api.covid19india.org/data.json"
-    guard let url = URL(string: urlString) else { return }
+    guard let url = URL(string: urlString) else {
+      completion([], .invalidRequest)
+      return
+    }
     
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-      guard error == nil else { return }
-      guard let data = data else { return }
+      guard error == nil else {
+        completion([], .unableToComplete)
+        return
+      }
+      guard let data = data else {
+        completion([], .invalidData)
+        return
+      }
       
       do {
         let responseObject = try JSONDecoder().decode(StateWiseCases.self, from: data)
         let stateDataArray = responseObject.stateDataArray
         DispatchQueue.main.async {
-          completion(stateDataArray)
+          completion(stateDataArray, nil)
         }
       } catch {
-        print(error)
+        completion([], .invalidResponse)
       }
       
     }

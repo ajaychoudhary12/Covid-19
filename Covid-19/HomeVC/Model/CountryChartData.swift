@@ -6,21 +6,22 @@
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
-import Foundation
-
 struct CountryChartData {
   let confirmedChartData: [String]
+  let activeChartData: [String]
   let recoveredChartData: [String]
   let deathsChartData: [String]
   
   init() {
     confirmedChartData = []
+    activeChartData = []
     recoveredChartData = []
     deathsChartData = []
   }
   
-  init(confirmedChartData: [String], recoveredChartData: [String], deathsChartData: [String]) {
+  init(confirmedChartData: [String], activeChartData: [String], recoveredChartData: [String], deathsChartData: [String]) {
     self.confirmedChartData = confirmedChartData
+    self.activeChartData = activeChartData
     self.recoveredChartData = recoveredChartData
     self.deathsChartData = deathsChartData
   }

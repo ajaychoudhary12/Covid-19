@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StateCell: UICollectionViewCell {
+class PlaceCell: UICollectionViewCell {
   
   private let stateNameLabel = UILabel()
   private let countLabel = UILabel()
@@ -35,6 +35,14 @@ class StateCell: UICollectionViewCell {
       case.deaths:
         self.countLabel.text = stateData?.deaths
       }
+    }
+  }
+  
+  var district: District? {
+    didSet {
+      guard let district = district else { return }
+      self.stateNameLabel.text = district.district
+      self.countLabel.text = "\(district.confirmed)"
     }
   }
   

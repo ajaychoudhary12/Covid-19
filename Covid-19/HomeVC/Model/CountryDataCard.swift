@@ -6,8 +6,6 @@
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
-import Foundation
-
 struct CountryDataCard {
   let status: CountryDataCardState
   let count: String

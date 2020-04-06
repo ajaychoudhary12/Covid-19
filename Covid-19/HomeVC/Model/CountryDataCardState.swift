@@ -6,8 +6,6 @@
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
-import Foundation
-
 enum CountryDataCardState: String {
   case confirmed = "Confirmed"
   case active = "Active"

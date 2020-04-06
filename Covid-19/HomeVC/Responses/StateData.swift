@@ -6,12 +6,10 @@
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
-import Foundation
-
 struct StateData: Codable {
-  let active: String
   let confirmed: String
-  let deaths: String
+  let active: String
   let recovered: String
+  let deaths: String
   let state: String
 }

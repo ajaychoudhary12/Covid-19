@@ -20,7 +20,6 @@ class HomeVC: UIViewController {
   private var activityIndicatorContainer: UIView!
   private var activityIndicator: UIActivityIndicatorView!
   
-  private let topView = UIView()
   private let cellId = "cellid"
   private let statsHeaderId = "statsheaderid"
   private let tableHeaderId = "tableheaderid"
@@ -30,17 +29,30 @@ class HomeVC: UIViewController {
   
   private var countryChartData = CountryChartData()
   
+  // District Properties
+  private var districtWiseDataArray = [DistrictWiseData]()
+  
   private var caseTimeSeries = [CaseTimeSerie]() {
     didSet {
       var confirmedChartData = [String]()
+      var activeChartData = [String]()
       var recoveredChartData = [String]()
       var deathsChartData = [String]()
+      
       for caseTimeSerie in caseTimeSeries {
+        
+        let confirmed = Int(caseTimeSerie.totalConfirmed) ?? 0
+        let recovered = Int(caseTimeSerie.totalRecovered) ?? 0
+        let deaths = Int(caseTimeSerie.totalDeaths) ?? 0
+        let active = String(confirmed - (recovered + deaths))
+        
         confirmedChartData.append(caseTimeSerie.totalConfirmed)
         recoveredChartData.append(caseTimeSerie.totalRecovered)
         deathsChartData.append(caseTimeSerie.totalDeaths)
+        activeChartData.append(active)
       }
       self.countryChartData = CountryChartData(confirmedChartData: confirmedChartData,
+                                               activeChartData: activeChartData,
                                                recoveredChartData: recoveredChartData,
                                                deathsChartData: deathsChartData)
     }
@@ -57,6 +69,7 @@ class HomeVC: UIViewController {
   private func fetchData() {
     loadingData(true)
     CovidClient.fetchTimeSeriesAndStateWiseStats(completion: handleStateData)
+    CovidClient.fetchDistrictData(completion: handleDistrictData)
   }
   
   private func handleStateData(stateData: [StateData], caseTimeSeries: [CaseTimeSerie], error: ErrorMessage?) {
@@ -73,11 +86,19 @@ class HomeVC: UIViewController {
     }
   }
   
+  private func handleDistrictData(districtWiseData: [DistrictWiseData], error: ErrorMessage?) {
+    self.districtWiseDataArray = districtWiseData
+  }
+  
   // MARK: - SetupView
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
   
   private func setupView() {
     view.backgroundColor = .systemGroupedBackground
-    setupTopView()
     setupCollectionView()
     setupActivityIndicator()
   }
@@ -94,19 +115,6 @@ class HomeVC: UIViewController {
     
     activityIndicator.centerXAnchor.constraint(equalTo: activityIndicatorContainer.centerXAnchor).isActive = true
     activityIndicator.centerYAnchor.constraint(equalTo: activityIndicatorContainer.centerYAnchor).isActive = true
-  }
-  
-  private func setupTopView() {
-    view.addSubview(topView)
-    topView.translatesAutoresizingMaskIntoConstraints = false
-    
-    let top = topView.topAnchor.constraint(equalTo: view.topAnchor)
-    let leading = topView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-    let trailing = topView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    let height = topView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
-    NSLayoutConstraint.activate([top, leading, trailing, height])
-    
-    topView.backgroundColor = .systemGroupedBackground
   }
   
   private func setupCollectionView() {
@@ -126,8 +134,8 @@ class HomeVC: UIViewController {
     collectionView.bounces = false
     collectionView.alwaysBounceVertical = false
     
-    collectionView.register(StateCell.self, forCellWithReuseIdentifier: cellId)
-    collectionView.register(StatsHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: statsHeaderId)
+    collectionView.register(PlaceCell.self, forCellWithReuseIdentifier: cellId)
+    collectionView.register(CountryStatsHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: statsHeaderId)
     collectionView.register(TableHeadingView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: tableHeaderId)
 
     if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout { layout.sectionHeadersPinToVisibleBounds = false }
@@ -158,17 +166,29 @@ extension HomeVC: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StateCell
-    cell.stateData = stateDataArray[indexPath.row + 1]
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PlaceCell
+    cell.stateData = stateDataArray[indexPath.item + 1]
     cell.countryDataCardState = self.countryDataCardState
     return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let state = stateDataArray[indexPath.item + 1].state
+    for data in districtWiseDataArray {
+      if state == data.state {
+        let districtVC = DistrictVC()
+        districtVC.districtData = data
+        districtVC.stateData = stateDataArray[indexPath.item + 1]
+        self.navigationController?.pushViewController(districtVC, animated: true)
+      }
+    }
   }
   
   // Customising Header
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     if indexPath.section == 0 {
-      let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: statsHeaderId, for: indexPath) as! StatsHeaderView
+      let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: statsHeaderId, for: indexPath) as! CountryStatsHeaderView
       headerView.countryChartData = countryChartData
       headerView.stateDataArray = stateDataArray
       headerView.delegate = self

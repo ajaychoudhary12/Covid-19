@@ -12,7 +12,7 @@ protocol ChangeCountFieldDelegate {
   func changeCountFieldData(countryDataCardState: CountryDataCardState)
 }
 
-class StatsHeaderView: UICollectionReusableView {
+class CountryStatsHeaderView: UICollectionReusableView {
   
   private let collectionView: UICollectionView = {
       let layout = UICollectionViewFlowLayout()
@@ -92,7 +92,7 @@ class StatsHeaderView: UICollectionReusableView {
     
     collectionView.showsVerticalScrollIndicator = false
     collectionView.showsHorizontalScrollIndicator = false
-    collectionView.register(StatsHeaderCell.self, forCellWithReuseIdentifier: cellId)
+    collectionView.register(CountryStatsHeaderCell.self, forCellWithReuseIdentifier: cellId)
   }
   
   private func setupPageControl() {
@@ -114,20 +114,20 @@ class StatsHeaderView: UICollectionReusableView {
   private func makeCountryData(state: StateData) -> [CountryDataCard] {
     return [
       CountryDataCard(status: .confirmed, count: state.confirmed, chartData: countryChartData?.confirmedChartData),
-      CountryDataCard(status: .active, count: state.active, chartData: countryChartData?.recoveredChartData),
+      CountryDataCard(status: .active, count: state.active, chartData: countryChartData?.activeChartData),
       CountryDataCard(status: .recovered, count: state.recovered, chartData: countryChartData?.recoveredChartData),
       CountryDataCard(status: .deaths, count: state.deaths, chartData: countryChartData?.deathsChartData)
     ]
   }
 }
 
-extension StatsHeaderView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension CountryStatsHeaderView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return countryDataCard.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StatsHeaderCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CountryStatsHeaderCell
     cell.countryDataCard = self.countryDataCard[indexPath.row]
     
     switch indexPath.row {

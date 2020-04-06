@@ -9,7 +9,7 @@
 import UIKit
 import SwiftChart
 
-class StatsHeaderCell: UICollectionViewCell {
+class CountryStatsHeaderCell: UICollectionViewCell {
   
   let casesLabel = UILabel()
   let casesCountLabel = UILabel()

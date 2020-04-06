@@ -6,9 +6,7 @@
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
-import Foundation
-
-class StateWiseCases: Codable {
+struct StateWiseCases: Codable {
   let stateDataArray: [StateData]
   let caseTimeSeries: [CaseTimeSerie]
   

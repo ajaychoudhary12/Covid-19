@@ -10,9 +10,16 @@ import Foundation
 
 class CovidClient {
   
+  static let baseUrl = "https://api.covid19india.org"
+  
+  enum paths: String{
+    case stateStats = "/data.json"
+    case districtStats = "/v2/state_district_wise.json"
+  }
+  
   class func fetchTimeSeriesAndStateWiseStats(completion: @escaping ([StateData], [CaseTimeSerie], ErrorMessage?) -> Void) {
     
-    let urlString = "https://api.covid19india.org/data.json"
+    let urlString = baseUrl + paths.stateStats.rawValue
     guard let url = URL(string: urlString) else {
       completion([], [], .invalidRequest)
       return
@@ -37,6 +44,36 @@ class CovidClient {
         }
       } catch {
         completion([], [], .invalidResponse)
+      }
+      
+    }
+    task.resume()
+  }
+  
+  class func fetchDistrictData(completion: @escaping ([DistrictWiseData], ErrorMessage?) -> Void) {
+    let urlString = baseUrl + paths.districtStats.rawValue
+    guard let url = URL(string: urlString) else {
+      completion([], .invalidRequest)
+      return
+    }
+    
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+      guard error == nil else {
+        completion([], .unableToComplete)
+        return
+      }
+      guard let data = data else {
+        completion([], .invalidData)
+        return
+      }
+      
+      do {
+        let responseObject = try JSONDecoder().decode([DistrictWiseData].self, from: data)
+        DispatchQueue.main.async {
+          completion(responseObject, nil)
+        }
+      } catch {
+        completion([], .invalidResponse)
       }
       
     }

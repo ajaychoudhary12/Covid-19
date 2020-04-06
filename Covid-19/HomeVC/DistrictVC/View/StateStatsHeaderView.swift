@@ -19,11 +19,7 @@ class StateStatsHeaderView: UICollectionReusableView {
   }()
   
   private let cellId = "cellid"
-  var stateData : StateData? {
-    didSet {
-      
-    }
-  }
+  var stateData : StateData?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -69,12 +65,20 @@ extension StateStatsHeaderView: UICollectionViewDelegateFlowLayout, UICollection
     switch indexPath.row {
     case 0:
       cell.backgroundColor = .systemPink
+      cell.casesLabel.text = "Confirmed Cases"
+      cell.countLabel.text = stateData?.confirmed
     case 1:
       cell.backgroundColor = .systemBlue
+      cell.casesLabel.text = "Active Cases"
+      cell.countLabel.text = stateData?.active
     case 2:
       cell.backgroundColor = .systemGreen
+      cell.casesLabel.text = "Recovered Cases"
+      cell.countLabel.text = stateData?.recovered
     case 3:
       cell.backgroundColor = .systemGray2
+      cell.casesLabel.text = "Deaths"
+      cell.countLabel.text = stateData?.deaths
     default:
       cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
@@ -82,7 +86,7 @@ extension StateStatsHeaderView: UICollectionViewDelegateFlowLayout, UICollection
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    CGSize(width: collectionView.frame.width - 170, height: collectionView.frame.height - 50)
+    CGSize(width: collectionView.frame.width - 165, height: collectionView.frame.height - 50)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

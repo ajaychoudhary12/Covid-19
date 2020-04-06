@@ -10,7 +10,7 @@ import UIKit
 
 class TableHeadingView: UICollectionReusableView {
   
-  private let stateLabel = UILabel()
+  let stateLabel = UILabel()
   private let confirmedLabel = UILabel()
   private let cornerRadius: CGFloat = 12
   private let containerView = UIView()

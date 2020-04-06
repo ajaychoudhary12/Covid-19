@@ -12,6 +12,7 @@ class DistrictVC: UIViewController {
   
   var districtData: DistrictWiseData!
   var stateData: StateData!
+  private var isAboveTableHeading = true
   
   private let collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -38,6 +39,7 @@ class DistrictVC: UIViewController {
   
   private func setupView() {
     view.backgroundColor = .systemGroupedBackground
+    self.title = stateData.state
     setupCollectionView()
   }
   
@@ -90,6 +92,7 @@ extension DistrictVC: UICollectionViewDataSource {
       return headerView
     } else {
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: tableHeaderId, for: indexPath) as! TableHeadingView
+      headerView.stateLabel.text = "DISTRICT"
       return headerView
     }
   }
@@ -108,4 +111,25 @@ extension DistrictVC: UICollectionViewDelegateFlowLayout {
     let width = collectionView.frame.width - 40
     return CGSize(width: width, height: 60)
   }
+}
+
+extension DistrictVC: UIScrollViewDelegate {
+
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let height: CGFloat = 220
+    let y = scrollView.contentOffset.y
+
+    if y > height {
+      if isAboveTableHeading {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout { layout.sectionHeadersPinToVisibleBounds = true }
+      }
+      isAboveTableHeading = false
+    } else {
+      if isAboveTableHeading == false {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout { layout.sectionHeadersPinToVisibleBounds = false }
+      }
+      isAboveTableHeading = true
+    }
+  }
+
 }

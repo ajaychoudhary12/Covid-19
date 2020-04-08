@@ -9,14 +9,22 @@
 import UIKit
 import WebKit
 
+protocol WebViewDelegate {
+  func didFinish()
+  func didFail()
+}
+
 class SocialCell: UICollectionViewCell {
+  
+  var delegate: WebViewDelegate?
   
   private let webView = WKWebView()
   var urlString: String? {
     didSet {
       guard let urlString = urlString else { return }
       guard let url = URL(string: urlString) else { return }
-      webView.load(URLRequest(url: url))
+      let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 0.5)
+      webView.load(urlRequest)
     }
   }
   
@@ -30,7 +38,7 @@ class SocialCell: UICollectionViewCell {
   }
   
   private func setupView() {
-    backgroundColor = .white
+    backgroundColor = .systemGroupedBackground
     setupWebView()
   }
   
@@ -39,10 +47,23 @@ class SocialCell: UICollectionViewCell {
     webView.translatesAutoresizingMaskIntoConstraints = false
     
     let top = webView.topAnchor.constraint(equalTo: topAnchor)
-    let leading = webView.leadingAnchor.constraint(equalTo: leadingAnchor)
-    let trailing = webView.trailingAnchor.constraint(equalTo: trailingAnchor)
-    let bottom = webView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32)
+    let leading = webView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4)
+    let trailing = webView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4)
+    let bottom = webView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -42)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
+    
+    webView.navigationDelegate = self
+    webView.allowsBackForwardNavigationGestures = false
   }
   
+}
+
+extension SocialCell: WKNavigationDelegate {
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    delegate?.didFinish()
+  }
+  
+  func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    delegate?.didFail()
+  }
 }

@@ -31,10 +31,10 @@ class StateStatsHeaderCell: UICollectionViewCell {
   
   private func setupShadow() {
     layer.cornerRadius = cornerRadius
-    layer.shadowColor = UIColor.gray.cgColor
+    layer.shadowColor = UIColor.darkGray.cgColor
     layer.shadowOffset = CGSize(width: 5, height: 5)
     layer.shadowRadius = cornerRadius
-    layer.shadowOpacity = 0.5
+    layer.shadowOpacity = 0.8
     
     contentView.layer.cornerRadius = cornerRadius
     contentView.clipsToBounds = true
@@ -50,7 +50,7 @@ class StateStatsHeaderCell: UICollectionViewCell {
     let height = casesLabel.heightAnchor.constraint(equalToConstant: 40)
     NSLayoutConstraint.activate([top, leading, width, height])
     
-    casesLabel.text = "Confirmed Cases"
+    casesLabel.text = "Confirmed"
     casesLabel.font = .systemFont(ofSize: 26)
     casesLabel.textColor = .white
     casesLabel.textAlignment = .center
@@ -66,7 +66,7 @@ class StateStatsHeaderCell: UICollectionViewCell {
     let width = countLabel.widthAnchor.constraint(equalTo: widthAnchor)
     NSLayoutConstraint.activate([centerY, centerX, height, width])
     
-    countLabel.text = "496"
+    countLabel.text = ""
     countLabel.font = .systemFont(ofSize: 34)
     countLabel.textColor = .white
     countLabel.textAlignment = .center

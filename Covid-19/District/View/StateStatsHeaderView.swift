@@ -65,15 +65,15 @@ extension StateStatsHeaderView: UICollectionViewDelegateFlowLayout, UICollection
     switch indexPath.row {
     case 0:
       cell.backgroundColor = .systemPink
-      cell.casesLabel.text = "Confirmed Cases"
+      cell.casesLabel.text = "Confirmed"
       cell.countLabel.text = stateData?.confirmed
     case 1:
       cell.backgroundColor = .systemBlue
-      cell.casesLabel.text = "Active Cases"
+      cell.casesLabel.text = "Active"
       cell.countLabel.text = stateData?.active
     case 2:
       cell.backgroundColor = .systemGreen
-      cell.casesLabel.text = "Recovered Cases"
+      cell.casesLabel.text = "Recovered"
       cell.countLabel.text = stateData?.recovered
     case 3:
       cell.backgroundColor = .systemGray2

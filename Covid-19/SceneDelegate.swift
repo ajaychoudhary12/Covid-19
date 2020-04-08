@@ -17,9 +17,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
-    let navController = UINavigationController(rootViewController: HomeVC())
-    window?.rootViewController = navController
+    window?.rootViewController = createTabBarController()
     window?.makeKeyAndVisible()
+  }
+  
+  private func createHomeNC() -> UINavigationController {
+    let homeVC = HomeVC()
+    homeVC.title = "Home"
+    homeVC.tabBarItem.image = UIImage(named: "home")
+    return UINavigationController(rootViewController: homeVC)
+  }
+  
+  private func createSocialVC() -> UIViewController {
+    let socialVC = SocialVC()
+    socialVC.title = "Social"
+    socialVC.tabBarItem.image = UIImage(named: "social")
+    return socialVC
+  }
+  
+  private func createTabBarController() -> UITabBarController {
+    let tabBar = UITabBarController()
+    UITabBar.appearance().tintColor = .systemPink
+    tabBar.viewControllers = [createHomeNC(), createSocialVC()]
+    return tabBar
   }
 
 }

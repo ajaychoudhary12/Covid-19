@@ -30,8 +30,10 @@
 		2D3F2E272439B0E800BAE875 /* CaseTimeSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F2E262439B0E800BAE875 /* CaseTimeSerie.swift */; };
 		2D3F2E2A2439CCDE00BAE875 /* CountryChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F2E292439CCDE00BAE875 /* CountryChartData.swift */; };
 		2D6B9E42243723E0002AB29D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B9E41243723E0002AB29D /* PlaceCell.swift */; };
+		2DB82922243CCF94002D139C /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB82921243CCF94002D139C /* SocialVC.swift */; };
 		2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */; };
 		2DEC22622438FB13005A5FDA /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC22612438FB13005A5FDA /* CustomAlertVC.swift */; };
+		2DEE5DC8243D858C009F9A3A /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEE5DC7243D858C009F9A3A /* SocialCell.swift */; };
 		DDFE0E64589E1BF5C9EFA072 /* Pods_Covid_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7743D02E447109434E547795 /* Pods_Covid_19.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +63,10 @@
 		2D3F2E262439B0E800BAE875 /* CaseTimeSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseTimeSerie.swift; sourceTree = "<group>"; };
 		2D3F2E292439CCDE00BAE875 /* CountryChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryChartData.swift; sourceTree = "<group>"; };
 		2D6B9E41243723E0002AB29D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		2DB82921243CCF94002D139C /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeadingView.swift; sourceTree = "<group>"; };
 		2DEC22612438FB13005A5FDA /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
+		2DEE5DC7243D858C009F9A3A /* SocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		7743D02E447109434E547795 /* Pods_Covid_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0D988D78806F4AD624F305 /* Pods-Covid-19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19.debug.xcconfig"; path = "Target Support Files/Pods-Covid-19/Pods-Covid-19.debug.xcconfig"; sourceTree = "<group>"; };
 		F92A189F88D969B758221880 /* Pods-Covid-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19.release.xcconfig"; path = "Target Support Files/Pods-Covid-19/Pods-Covid-19.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 				2D2997A6243625CC00AB4C7A /* AppDelegate.swift */,
 				2D2997A8243625CD00AB4C7A /* SceneDelegate.swift */,
 				2D25ECA324382B18007BD169 /* Networking */,
-				2D2997BA2436270C00AB4C7A /* HomeVC */,
+				2D2997BA2436270C00AB4C7A /* Home */,
+				2D3D4FB5243AC58200C86AAE /* District */,
+				2DB82920243CCF48002D139C /* Social */,
 				2D25ECB22438DAB5007BD169 /* Utilities */,
 				2D2997AF243625D300AB4C7A /* Assets.xcassets */,
 				2D2997B1243625D300AB4C7A /* LaunchScreen.storyboard */,
@@ -132,16 +138,15 @@
 			path = "Covid-19";
 			sourceTree = "<group>";
 		};
-		2D2997BA2436270C00AB4C7A /* HomeVC */ = {
+		2D2997BA2436270C00AB4C7A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2D3D4FB5243AC58200C86AAE /* DistrictVC */,
 				2D3F2E282439CBE300BAE875 /* Responses */,
 				2D2997BD2436286900AB4C7A /* Controller */,
 				2D2997BC2436286300AB4C7A /* View */,
 				2D2997BB2436285E00AB4C7A /* Model */,
 			);
-			path = HomeVC;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		2D2997BB2436285E00AB4C7A /* Model */ = {
@@ -173,14 +178,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		2D3D4FB5243AC58200C86AAE /* DistrictVC */ = {
+		2D3D4FB5243AC58200C86AAE /* District */ = {
 			isa = PBXGroup;
 			children = (
 				2D3D4FBA243AD3B500C86AAE /* Responses */,
 				2D3D4FB9243AD38700C86AAE /* View */,
 				2D3D4FB8243AD36E00C86AAE /* Controller */,
 			);
-			path = DistrictVC;
+			path = District;
 			sourceTree = "<group>";
 		};
 		2D3D4FB8243AD36E00C86AAE /* Controller */ = {
@@ -217,6 +222,31 @@
 				2D25ECA624382DBC007BD169 /* StateWiseCases.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		2DB82920243CCF48002D139C /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				2DEE5DC6243D856C009F9A3A /* View */,
+				2DB82923243CCFDF002D139C /* Controller */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		2DB82923243CCFDF002D139C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DB82921243CCF94002D139C /* SocialVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2DEE5DC6243D856C009F9A3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DEE5DC7243D858C009F9A3A /* SocialCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8A549917EE2FFEBAC33D11C7 /* Frameworks */ = {
@@ -358,6 +388,7 @@
 				2D25ECAB24385745007BD169 /* CountryStatsHeaderCell.swift in Sources */,
 				2D3D4FB7243AC5D000C86AAE /* DistrictVC.swift in Sources */,
 				2D3F2E2A2439CCDE00BAE875 /* CountryChartData.swift in Sources */,
+				2DEE5DC8243D858C009F9A3A /* SocialCell.swift in Sources */,
 				2D25ECA924382DEC007BD169 /* StateData.swift in Sources */,
 				2D25ECA724382DBC007BD169 /* StateWiseCases.swift in Sources */,
 				2D25ECB42438DAD8007BD169 /* ErrorMessage.swift in Sources */,
@@ -365,6 +396,7 @@
 				2D2997AB243625CD00AB4C7A /* HomeVC.swift in Sources */,
 				2D2997A7243625CD00AB4C7A /* AppDelegate.swift in Sources */,
 				2DEC22622438FB13005A5FDA /* CustomAlertVC.swift in Sources */,
+				2DB82922243CCF94002D139C /* SocialVC.swift in Sources */,
 				2D3D4FC4243B1F3C00C86AAE /* StateStatsHeaderCell.swift in Sources */,
 				2D3F2E272439B0E800BAE875 /* CaseTimeSerie.swift in Sources */,
 				2D2997A9243625CD00AB4C7A /* SceneDelegate.swift in Sources */,

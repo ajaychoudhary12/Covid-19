@@ -15,10 +15,10 @@ protocol ChangeCountFieldDelegate {
 class CountryStatsHeaderView: UICollectionReusableView {
   
   private let collectionView: UICollectionView = {
-      let layout = UICollectionViewFlowLayout()
-      layout.scrollDirection = .horizontal
-      let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-      return collectionView
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .horizontal
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    return collectionView
   }()
   
   private let containerView = UIView()

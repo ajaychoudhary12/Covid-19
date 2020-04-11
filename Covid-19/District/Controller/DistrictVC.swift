@@ -68,6 +68,8 @@ class DistrictVC: UIViewController {
   }
 }
 
+  //MARK: - Extensions
+
 extension DistrictVC: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 2

@@ -64,32 +64,6 @@ class HomeVC: UIViewController {
     fetchData()
   }
   
-  // MARK: - NetworkCalls
-  
-  private func fetchData() {
-    loadingData(true)
-    CovidClient.fetchTimeSeriesAndStateWiseStats(completion: handleStateData)
-    CovidClient.fetchDistrictData(completion: handleDistrictData)
-  }
-  
-  private func handleStateData(stateData: [StateData], caseTimeSeries: [CaseTimeSerie], error: ErrorMessage?) {
-    if error != nil {
-      DispatchQueue.main.async { self.loadingData(false) }
-      self.presentCustomAlertOnMainThread(title: "Bad stuff Happened", message: error!.rawValue, delegate: self)
-      return
-    }
-    self.stateDataArray = stateData
-    self.caseTimeSeries = caseTimeSeries
-    DispatchQueue.main.async {
-      self.collectionView.reloadData()
-      self.loadingData(false)
-    }
-  }
-  
-  private func handleDistrictData(districtWiseData: [DistrictWiseData], error: ErrorMessage?) {
-    self.districtWiseDataArray = districtWiseData
-  }
-  
   // MARK: - SetupView
   
   override func viewWillAppear(_ animated: Bool) {
@@ -154,7 +128,35 @@ class HomeVC: UIViewController {
     }
   }
   
+  // MARK: - NetworkCalls
+  
+  private func fetchData() {
+    loadingData(true)
+    CovidClient.fetchTimeSeriesAndStateWiseStats(completion: handleStateData)
+    CovidClient.fetchDistrictData(completion: handleDistrictData)
+  }
+  
+  private func handleStateData(stateData: [StateData], caseTimeSeries: [CaseTimeSerie], error: ErrorMessage?) {
+    if error != nil {
+      DispatchQueue.main.async { self.loadingData(false) }
+      self.presentCustomAlertOnMainThread(title: "Bad stuff Happened", message: error!.rawValue, delegate: self)
+      return
+    }
+    self.stateDataArray = stateData
+    self.caseTimeSeries = caseTimeSeries
+    DispatchQueue.main.async {
+      self.collectionView.reloadData()
+      self.loadingData(false)
+    }
+  }
+  
+  private func handleDistrictData(districtWiseData: [DistrictWiseData], error: ErrorMessage?) {
+    self.districtWiseDataArray = districtWiseData
+  }
+  
 }
+
+  //MARK: Extensions
 
 extension HomeVC: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {

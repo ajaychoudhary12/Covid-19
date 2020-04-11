@@ -10,14 +10,15 @@ import UIKit
 
 class PlaceCell: UICollectionViewCell {
   
-  private let stateNameLabel = UILabel()
+  private let placeNameLabel = UILabel()
   private let countLabel = UILabel()
   private let cornerRadius: CGFloat = 12
+  private let bottomBorder = UIView()
   
   var stateData: StateData? {
     didSet {
       guard let stateData = stateData else { return }
-      self.stateNameLabel.text = stateData.state
+      self.placeNameLabel.text = stateData.state
       self.countLabel.text = stateData.confirmed
     }
   }
@@ -41,7 +42,7 @@ class PlaceCell: UICollectionViewCell {
   var district: District? {
     didSet {
       guard let district = district else { return }
-      self.stateNameLabel.text = district.district
+      self.placeNameLabel.text = district.district
       self.countLabel.text = "\(district.confirmed)"
     }
   }
@@ -74,18 +75,18 @@ class PlaceCell: UICollectionViewCell {
   }
   
   private func setupStateNameLabel() {
-    addSubview(stateNameLabel)
-    stateNameLabel.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(placeNameLabel)
+    placeNameLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let height = stateNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
-    let leading = stateNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12)
-    let centerY = stateNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let width = stateNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6)
+    let height = placeNameLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
+    let leading = placeNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12)
+    let centerY = placeNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+    let width = placeNameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6)
     NSLayoutConstraint.activate([height, leading, centerY, width])
     
-    stateNameLabel.font = .boldSystemFont(ofSize: 17)
-    stateNameLabel.textColor = .systemBlue
-    stateNameLabel.numberOfLines = 0
+    placeNameLabel.font = .boldSystemFont(ofSize: 17)
+    placeNameLabel.textColor = .systemBlue
+    placeNameLabel.numberOfLines = 0
   }
   
   private func setupCountLabel() {

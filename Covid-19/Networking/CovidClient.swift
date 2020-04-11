@@ -80,4 +80,32 @@ class CovidClient {
     task.resume()
   }
   
+  class func fetchHospitalData(completion: @escaping ([MedicalCollege], ErrorMessage?) -> Void) {
+    let urlString = "https://api.rootnet.in/covid19-in/hospitals/medical-colleges"
+    guard let url = URL(string: urlString) else {
+      completion([], .invalidRequest)
+      return
+    }
+    
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+      guard error == nil else {
+        completion([], .unableToComplete)
+        return
+      }
+      guard let data = data else {
+        completion([], .invalidData)
+        return
+      }
+      
+      do {
+        let resposneObject = try JSONDecoder().decode(HospitalResponse.self, from: data)
+        let medicalColleges = resposneObject.data.medicalColleges
+        completion(medicalColleges, nil)
+      } catch {
+        completion([], .invalidResponse)
+      }
+    }
+    task.resume()
+  }
+  
 }

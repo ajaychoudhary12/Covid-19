@@ -41,6 +41,11 @@ class CustomAlertVC: UIViewController {
     setupView()
   }
   
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name("NetworkReachabilityChanged"), object: nil)
+  }
+  
   private func addNetworkObserver() {
     NotificationCenter.default.addObserver(forName: NSNotification.Name("NetworkReachabilityChanged"), object: nil, queue: nil) { (notification) in
       if let userInfo = notification.userInfo {

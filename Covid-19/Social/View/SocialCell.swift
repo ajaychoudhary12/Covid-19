@@ -23,8 +23,7 @@ class SocialCell: UICollectionViewCell {
     didSet {
       guard let urlString = urlString else { return }
       guard let url = URL(string: urlString) else { return }
-      let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 0.5)
-      webView.load(urlRequest)
+      webView.load(URLRequest(url: url))
     }
   }
   
@@ -53,7 +52,7 @@ class SocialCell: UICollectionViewCell {
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
     webView.navigationDelegate = self
-    webView.allowsBackForwardNavigationGestures = false
+    webView.allowsBackForwardNavigationGestures = true
   }
   
 }
@@ -62,7 +61,7 @@ extension SocialCell: WKNavigationDelegate {
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     delegate?.didFinish()
   }
-  
+
   func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
     delegate?.didFail()
   }

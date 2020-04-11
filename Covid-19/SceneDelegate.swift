@@ -31,14 +31,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   private func createSocialVC() -> UIViewController {
     let socialVC = SocialVC()
     socialVC.title = "Social"
-    socialVC.tabBarItem.image = UIImage(named: "social")
+    socialVC.tabBarItem.image = UIImage(named: "earth")
     return socialVC
+  }
+  
+  private func createHealthVC() -> UINavigationController {
+    let healthVC = HealthVC()
+    healthVC.title = "Health"
+    healthVC.tabBarItem.image = UIImage(named: "update")
+    return UINavigationController(rootViewController: healthVC)
   }
   
   private func createTabBarController() -> UITabBarController {
     let tabBar = UITabBarController()
     UITabBar.appearance().tintColor = .systemPink
-    tabBar.viewControllers = [createHomeNC(), createSocialVC()]
+    tabBar.viewControllers = [createHomeNC(), createSocialVC(), createHealthVC()]
     return tabBar
   }
 

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
-import Foundation
-
 struct CaseTimeSerie: Codable {
   let totalConfirmed: String
   let totalDeaths: String

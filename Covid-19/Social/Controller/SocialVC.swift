@@ -25,7 +25,7 @@ class SocialVC: UIViewController {
   private var side: CGFloat!
   private let cellId = "cellid"
   private let cvCornerRadius: CGFloat = 20
-  private let urls = ["https://twitter.com/MoHFW_INDIA", "https://timesofindia.indiatimes.com/coronavirus/india"]
+  private let urls = ["https://twitter.com/MoHFW_INDIA", "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/events-as-they-happen"]// "https://www.thehindu.com/topic/coronavirus"]
   
   private var activityIndicatorContainer: UIView!
   private var activityIndicator: UIActivityIndicatorView!
@@ -86,6 +86,7 @@ class SocialVC: UIViewController {
     collectionView.showsVerticalScrollIndicator = false
     collectionView.showsHorizontalScrollIndicator = false
     collectionView.register(SocialCell.self, forCellWithReuseIdentifier: cellId)
+    collectionView.isScrollEnabled = false
   }
   
   private func setupPageControl() {
@@ -108,28 +109,30 @@ class SocialVC: UIViewController {
     view.addSubview(prevButton)
     prevButton.translatesAutoresizingMaskIntoConstraints = false
     
-    let leading = prevButton.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: 12)
-    let height = prevButton.heightAnchor.constraint(equalToConstant: 25)
-    let width = prevButton.widthAnchor.constraint(equalToConstant: 30)
-    let bottom = prevButton.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: -8)
+    let leading = prevButton.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor, constant: 10)
+    let height = prevButton.heightAnchor.constraint(equalToConstant: 40)
+    let width = prevButton.widthAnchor.constraint(equalToConstant: 40)
+    let bottom = prevButton.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
     NSLayoutConstraint.activate([leading, height, width, bottom])
     
     prevButton.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysOriginal), for: .normal)
     prevButton.addTarget(self, action: #selector(prevAction), for: .touchUpInside)
+    prevButton.imageEdgeInsets = UIEdgeInsets(top: 7.5, left: 5, bottom: 7.5, right: 5)
   }
   
   private func setupNextButton() {
     view.addSubview(nextButton)
     nextButton.translatesAutoresizingMaskIntoConstraints = false
     
-    let trailing = nextButton.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor, constant: -12)
-    let height = nextButton.heightAnchor.constraint(equalToConstant: 25)
-    let width = nextButton.widthAnchor.constraint(equalToConstant: 30)
-    let bottom = nextButton.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: -8)
+    let trailing = nextButton.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor, constant: -10)
+    let height = nextButton.heightAnchor.constraint(equalToConstant: 40)
+    let width = nextButton.widthAnchor.constraint(equalToConstant: 40)
+    let bottom = nextButton.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
     NSLayoutConstraint.activate([trailing, height, width, bottom])
     
     nextButton.setImage(UIImage(named: "next")?.withRenderingMode(.alwaysOriginal), for: .normal)
     nextButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+    nextButton.imageEdgeInsets = UIEdgeInsets(top: 7.5, left: 5, bottom: 7.5, right: 5)
   }
   
   private func setupActivityIndicator() {
@@ -146,7 +149,7 @@ class SocialVC: UIViewController {
     activityIndicator.centerYAnchor.constraint(equalTo: activityIndicatorContainer.centerYAnchor).isActive = true
   }
   
-  //Mark: - Action
+  //MARK: - Actions
   
   @objc private func prevAction() {
     collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
@@ -160,6 +163,8 @@ class SocialVC: UIViewController {
   
 }
 
+  //MARK: - Extensions
+  
 extension SocialVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 2

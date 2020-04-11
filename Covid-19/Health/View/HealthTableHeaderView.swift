@@ -1,27 +1,19 @@
 //
-//  TableHeadingView.swift
+//  HealthTableHeaderView.swift
 //  Covid-19
 //
-//  Created by Ajay Choudhary on 03/04/20.
+//  Created by Ajay Choudhary on 09/04/20.
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
 import UIKit
 
-class TableHeadingView: UICollectionReusableView {
+class HealthTableHeaderView: UICollectionReusableView {
   
-  let stateLabel = UILabel()
-  private let confirmedLabel = UILabel()
   private let cornerRadius: CGFloat = 12
   private let containerView = UIView()
   private let parentContainerView = UIView()
-  
-  var countryDataCardState: CountryDataCardState? {
-    didSet {
-      guard let countryDataCardState = countryDataCardState else { return }
-      confirmedLabel.text = countryDataCardState.rawValue.uppercased()
-    }
-  }
+  private let helpLineLabel = UILabel()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -32,11 +24,12 @@ class TableHeadingView: UICollectionReusableView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  
   private func setupView() {
+    backgroundColor = .systemGroupedBackground
     setupParentContainerView()
     setupContainerView()
-    setupStateLabel()
-    setupConfirmedLabel()
+    setupHelpLineLabel()
   }
   
   private func setupParentContainerView() {
@@ -72,34 +65,20 @@ class TableHeadingView: UICollectionReusableView {
     containerView.clipsToBounds = true
   }
   
-  private func setupStateLabel() {
-    containerView.addSubview(stateLabel)
-    stateLabel.translatesAutoresizingMaskIntoConstraints = false
+  private func setupHelpLineLabel() {
+    containerView.addSubview(helpLineLabel)
+    helpLineLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let height = stateLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
-    let leading = stateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12)
-    let centerY = stateLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let width = stateLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2)
-    NSLayoutConstraint.activate([height, leading, centerY, width])
+    let height = helpLineLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8)
+    let leading = helpLineLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12)
+    let trailing = helpLineLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
+    let centerY = helpLineLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+    NSLayoutConstraint.activate([height, leading, trailing, centerY])
     
-    stateLabel.font = .boldSystemFont(ofSize: 16)
-    stateLabel.text = "STATE"
-    stateLabel.textColor = .systemRed
-  }
-  
-  private func setupConfirmedLabel() {
-    containerView.addSubview(confirmedLabel)
-    confirmedLabel.translatesAutoresizingMaskIntoConstraints = false
-    
-    let height = confirmedLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75)
-    let trailing = confirmedLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12)
-    let centerY = confirmedLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let width = confirmedLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.28)
-    NSLayoutConstraint.activate([height, trailing, centerY, width])
-    
-    confirmedLabel.font = .boldSystemFont(ofSize: 16)
-    confirmedLabel.text = "CONFIRMED"
-    confirmedLabel.textAlignment = .right
-    confirmedLabel.textColor = .systemRed
+    helpLineLabel.font = .boldSystemFont(ofSize: 20)
+    helpLineLabel.text = "Helpline Centers in India"
+    helpLineLabel.textColor = .systemPink
+    helpLineLabel.textAlignment = .center
+    helpLineLabel.backgroundColor = .systemGroupedBackground
   }
 }

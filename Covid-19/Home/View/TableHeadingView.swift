@@ -84,7 +84,7 @@ class TableHeadingView: UICollectionReusableView {
     
     stateLabel.font = .boldSystemFont(ofSize: 16)
     stateLabel.text = "STATE"
-    stateLabel.textColor = .systemRed
+    stateLabel.textColor = .systemPink
   }
   
   private func setupConfirmedLabel() {
@@ -100,6 +100,6 @@ class TableHeadingView: UICollectionReusableView {
     confirmedLabel.font = .boldSystemFont(ofSize: 16)
     confirmedLabel.text = "CONFIRMED"
     confirmedLabel.textAlignment = .right
-    confirmedLabel.textColor = .systemRed
+    confirmedLabel.textColor = .systemPink
   }
 }

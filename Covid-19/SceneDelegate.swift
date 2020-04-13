@@ -42,10 +42,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     return UINavigationController(rootViewController: healthVC)
   }
   
+  private func createSymptomCheckerVC() -> UIViewController {
+    let symptomCheckerVC = SymptomCheckerVC()
+    symptomCheckerVC.title = "Symptom"
+    return symptomCheckerVC
+  }
+  
   private func createTabBarController() -> UITabBarController {
     let tabBar = UITabBarController()
     UITabBar.appearance().tintColor = .systemPink
-    tabBar.viewControllers = [createHomeNC(), createSocialVC(), createHealthVC()]
+    tabBar.viewControllers = [createHomeNC(), createSocialVC(), createSymptomCheckerVC(), createHealthVC()]
     return tabBar
   }
 

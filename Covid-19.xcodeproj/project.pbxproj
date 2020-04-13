@@ -34,7 +34,12 @@
 		2D51B7B1243EC87B00401044 /* HospitalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B7B0243EC87B00401044 /* HospitalResponse.swift */; };
 		2D51B7B3243EC8DD00401044 /* HospitalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B7B2243EC8DD00401044 /* HospitalData.swift */; };
 		2D51B7B5243EC91900401044 /* MedicalCollege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B7B4243EC91900401044 /* MedicalCollege.swift */; };
+		2D697F942441E938007A1351 /* QuestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D697F932441E938007A1351 /* QuestionCard.swift */; };
 		2D6B9E42243723E0002AB29D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B9E41243723E0002AB29D /* PlaceCell.swift */; };
+		2D6F5D772442EEBA00D57290 /* QuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F5D762442EEBA00D57290 /* QuestionHeader.swift */; };
+		2D6F5D792442F63D00D57290 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F5D782442F63D00D57290 /* AnswerCell.swift */; };
+		2D6F5D7C2442FC3600D57290 /* QuestionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F5D7B2442FC3600D57290 /* QuestionConstants.swift */; };
+		2D9824A62441D5BA00666568 /* SymptomCheckerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9824A52441D5BA00666568 /* SymptomCheckerVC.swift */; };
 		2DB82922243CCF94002D139C /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB82921243CCF94002D139C /* SocialVC.swift */; };
 		2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */; };
 		2DE32D28243EF01B000B090D /* HospitalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE32D27243EF01B000B090D /* HospitalState.swift */; };
@@ -77,7 +82,12 @@
 		2D51B7B0243EC87B00401044 /* HospitalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalResponse.swift; sourceTree = "<group>"; };
 		2D51B7B2243EC8DD00401044 /* HospitalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalData.swift; sourceTree = "<group>"; };
 		2D51B7B4243EC91900401044 /* MedicalCollege.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalCollege.swift; sourceTree = "<group>"; };
+		2D697F932441E938007A1351 /* QuestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCard.swift; sourceTree = "<group>"; };
 		2D6B9E41243723E0002AB29D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		2D6F5D762442EEBA00D57290 /* QuestionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHeader.swift; sourceTree = "<group>"; };
+		2D6F5D782442F63D00D57290 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
+		2D6F5D7B2442FC3600D57290 /* QuestionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionConstants.swift; sourceTree = "<group>"; };
+		2D9824A52441D5BA00666568 /* SymptomCheckerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckerVC.swift; sourceTree = "<group>"; };
 		2DB82921243CCF94002D139C /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeadingView.swift; sourceTree = "<group>"; };
 		2DE32D27243EF01B000B090D /* HospitalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalState.swift; sourceTree = "<group>"; };
@@ -177,6 +187,7 @@
 				2DB82920243CCF48002D139C /* Social */,
 				2DEB2F74243E43A90088E176 /* Health */,
 				2D1FF4872440485D0089D9BF /* HelplineCenters */,
+				2D9824A22441CA6700666568 /* Symptom */,
 				2D25ECB22438DAB5007BD169 /* Utilities */,
 				2D2997AF243625D300AB4C7A /* Assets.xcassets */,
 				2D2997B1243625D300AB4C7A /* LaunchScreen.storyboard */,
@@ -279,6 +290,42 @@
 				2D51B7B4243EC91900401044 /* MedicalCollege.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		2D6F5D7A2442FC1100D57290 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D6F5D7B2442FC3600D57290 /* QuestionConstants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D9824A22441CA6700666568 /* Symptom */ = {
+			isa = PBXGroup;
+			children = (
+				2D9824A32441D59600666568 /* View */,
+				2D9824A42441D59E00666568 /* Controller */,
+				2D6F5D7A2442FC1100D57290 /* Model */,
+			);
+			path = Symptom;
+			sourceTree = "<group>";
+		};
+		2D9824A32441D59600666568 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D6F5D762442EEBA00D57290 /* QuestionHeader.swift */,
+				2D697F932441E938007A1351 /* QuestionCard.swift */,
+				2D6F5D782442F63D00D57290 /* AnswerCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D9824A42441D59E00666568 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D9824A52441D5BA00666568 /* SymptomCheckerVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		2DB82920243CCF48002D139C /* Social */ = {
@@ -486,10 +533,12 @@
 				2D3D4FB7243AC5D000C86AAE /* DistrictVC.swift in Sources */,
 				2D3F2E2A2439CCDE00BAE875 /* CountryChartData.swift in Sources */,
 				2DEE5DC8243D858C009F9A3A /* SocialCell.swift in Sources */,
+				2D697F942441E938007A1351 /* QuestionCard.swift in Sources */,
 				2D25ECA924382DEC007BD169 /* StateData.swift in Sources */,
 				2D25ECA724382DBC007BD169 /* StateWiseCases.swift in Sources */,
 				2D25ECB42438DAD8007BD169 /* ErrorMessage.swift in Sources */,
 				2D3D4FC2243B18F400C86AAE /* StateStatsHeaderView.swift in Sources */,
+				2D9824A62441D5BA00666568 /* SymptomCheckerVC.swift in Sources */,
 				2D2997AB243625CD00AB4C7A /* HomeVC.swift in Sources */,
 				2D2997A7243625CD00AB4C7A /* AppDelegate.swift in Sources */,
 				2DEB2F7A243E45AB0088E176 /* HealthStateCell.swift in Sources */,
@@ -498,15 +547,18 @@
 				2DB82922243CCF94002D139C /* SocialVC.swift in Sources */,
 				2D3D4FC4243B1F3C00C86AAE /* StateStatsHeaderCell.swift in Sources */,
 				2D51B7B5243EC91900401044 /* MedicalCollege.swift in Sources */,
+				2D6F5D772442EEBA00D57290 /* QuestionHeader.swift in Sources */,
 				2D51B7B1243EC87B00401044 /* HospitalResponse.swift in Sources */,
 				2D3F2E272439B0E800BAE875 /* CaseTimeSerie.swift in Sources */,
 				2D2997A9243625CD00AB4C7A /* SceneDelegate.swift in Sources */,
 				2D25ECAF24386010007BD169 /* CountryDataCard.swift in Sources */,
+				2D6F5D7C2442FC3600D57290 /* QuestionConstants.swift in Sources */,
 				2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */,
 				2D51B7B3243EC8DD00401044 /* HospitalData.swift in Sources */,
 				2DE32D28243EF01B000B090D /* HospitalState.swift in Sources */,
 				2D2997BF2436288300AB4C7A /* CountryStatsHeaderView.swift in Sources */,
 				2D3D4FBE243AD48600C86AAE /* DistrictWiseData.swift in Sources */,
+				2D6F5D792442F63D00D57290 /* AnswerCell.swift in Sources */,
 				2DE32D2C243F4666000B090D /* QuoteHeaderView.swift in Sources */,
 				2D25ECB62438DD0B007BD169 /* Extensions.swift in Sources */,
 			);

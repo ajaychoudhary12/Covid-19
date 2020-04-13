@@ -57,13 +57,13 @@ class PlaceCell: UICollectionViewCell {
   }
   
   private func setupView() {
+    backgroundColor = .systemGroupedBackground
     setupShadow()
     setupStateNameLabel()
     setupCountLabel()
   }
   
   private func setupShadow() {
-    backgroundColor = .systemGroupedBackground
     layer.cornerRadius = cornerRadius
     layer.shadowColor = UIColor.gray.cgColor
     layer.shadowOffset = CGSize(width: 5, height: 5)

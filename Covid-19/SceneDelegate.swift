@@ -17,42 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
-    window?.rootViewController = createTabBarController()
+    
+    let navController = UINavigationController(rootViewController: ContainerVC())
+    window?.rootViewController = navController
     window?.makeKeyAndVisible()
   }
-  
-  private func createHomeNC() -> UINavigationController {
-    let homeVC = HomeVC()
-    homeVC.title = "Home"
-    homeVC.tabBarItem.image = UIImage(named: "home")
-    return UINavigationController(rootViewController: homeVC)
-  }
-  
-  private func createSocialVC() -> UIViewController {
-    let socialVC = SocialVC()
-    socialVC.title = "Social"
-    socialVC.tabBarItem.image = UIImage(named: "earth")
-    return socialVC
-  }
-  
-  private func createHealthVC() -> UINavigationController {
-    let healthVC = HealthVC()
-    healthVC.title = "Health"
-    healthVC.tabBarItem.image = UIImage(named: "update")
-    return UINavigationController(rootViewController: healthVC)
-  }
-  
-  private func createSymptomCheckerVC() -> UIViewController {
-    let symptomCheckerVC = SymptomCheckerVC()
-    symptomCheckerVC.title = "Symptom"
-    return symptomCheckerVC
-  }
-  
-  private func createTabBarController() -> UITabBarController {
-    let tabBar = UITabBarController()
-    UITabBar.appearance().tintColor = .systemPink
-    tabBar.viewControllers = [createHomeNC(), createSocialVC(), createSymptomCheckerVC(), createHealthVC()]
-    return tabBar
-  }
-
 }

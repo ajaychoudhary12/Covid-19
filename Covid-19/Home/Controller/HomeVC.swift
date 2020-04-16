@@ -181,7 +181,7 @@ extension HomeVC: UICollectionViewDataSource {
         let districtVC = DistrictVC()
         districtVC.districtData = data
         districtVC.stateData = stateDataArray[indexPath.item + 1]
-        self.navigationController?.pushViewController(districtVC, animated: true)
+        self.parent?.navigationController?.pushViewController(districtVC, animated: true)
       }
     }
   }

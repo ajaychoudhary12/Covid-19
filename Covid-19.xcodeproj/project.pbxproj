@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0511DD2447164C00DDA550 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0511DC2447164C00DDA550 /* ContactsVC.swift */; };
+		2D0511DF2447180900DDA550 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0511DE2447180900DDA550 /* ContactCell.swift */; };
+		2D0511E1244727C200DDA550 /* ContactHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0511E0244727C200DDA550 /* ContactHeader.swift */; };
 		2D1FF48B244048B60089D9BF /* HelplineCentersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FF48A244048B60089D9BF /* HelplineCentersVC.swift */; };
 		2D1FF48D24404D9D0089D9BF /* HelplineCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FF48C24404D9D0089D9BF /* HelplineCenterCell.swift */; };
 		2D25ECA524382B40007BD169 /* CovidClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25ECA424382B40007BD169 /* CovidClient.swift */; };
@@ -39,9 +42,15 @@
 		2D6F5D772442EEBA00D57290 /* QuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F5D762442EEBA00D57290 /* QuestionHeader.swift */; };
 		2D6F5D792442F63D00D57290 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F5D782442F63D00D57290 /* AnswerCell.swift */; };
 		2D6F5D7C2442FC3600D57290 /* QuestionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F5D7B2442FC3600D57290 /* QuestionConstants.swift */; };
+		2D7C89902446DA0600DDCA3A /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C898F2446DA0600DDCA3A /* SettingsCollectionViewCell.swift */; };
+		2D83A5892447453C00269BC1 /* ContactConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D83A5882447453C00269BC1 /* ContactConstants.swift */; };
 		2D9824A62441D5BA00666568 /* SymptomCheckerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9824A52441D5BA00666568 /* SymptomCheckerVC.swift */; };
 		2DB82922243CCF94002D139C /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB82921243CCF94002D139C /* SocialVC.swift */; };
 		2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */; };
+		2DCB97302446B00600B4E448 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB972F2446B00600B4E448 /* MainTabBarController.swift */; };
+		2DCB97332446B05500B4E448 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB97322446B05500B4E448 /* SideMenuVC.swift */; };
+		2DCB97352446B0C800B4E448 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB97342446B0C800B4E448 /* ContainerVC.swift */; };
+		2DCB97372446C40500B4E448 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCB97362446C40500B4E448 /* Setting.swift */; };
 		2DE32D28243EF01B000B090D /* HospitalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE32D27243EF01B000B090D /* HospitalState.swift */; };
 		2DE32D2A243F45AA000B090D /* HealthTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE32D29243F45AA000B090D /* HealthTableHeaderView.swift */; };
 		2DE32D2C243F4666000B090D /* QuoteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE32D2B243F4666000B090D /* QuoteHeaderView.swift */; };
@@ -53,6 +62,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0511DC2447164C00DDA550 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		2D0511DE2447180900DDA550 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		2D0511E0244727C200DDA550 /* ContactHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeader.swift; sourceTree = "<group>"; };
 		2D1FF48A244048B60089D9BF /* HelplineCentersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelplineCentersVC.swift; sourceTree = "<group>"; };
 		2D1FF48C24404D9D0089D9BF /* HelplineCenterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelplineCenterCell.swift; sourceTree = "<group>"; };
 		2D25ECA424382B40007BD169 /* CovidClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidClient.swift; sourceTree = "<group>"; };
@@ -87,9 +99,15 @@
 		2D6F5D762442EEBA00D57290 /* QuestionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHeader.swift; sourceTree = "<group>"; };
 		2D6F5D782442F63D00D57290 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		2D6F5D7B2442FC3600D57290 /* QuestionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionConstants.swift; sourceTree = "<group>"; };
+		2D7C898F2446DA0600DDCA3A /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D83A5882447453C00269BC1 /* ContactConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactConstants.swift; sourceTree = "<group>"; };
 		2D9824A52441D5BA00666568 /* SymptomCheckerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckerVC.swift; sourceTree = "<group>"; };
 		2DB82921243CCF94002D139C /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		2DC4F49B24375A25005A5B44 /* TableHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeadingView.swift; sourceTree = "<group>"; };
+		2DCB972F2446B00600B4E448 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2DCB97322446B05500B4E448 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		2DCB97342446B0C800B4E448 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		2DCB97362446C40500B4E448 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		2DE32D27243EF01B000B090D /* HospitalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalState.swift; sourceTree = "<group>"; };
 		2DE32D29243F45AA000B090D /* HealthTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTableHeaderView.swift; sourceTree = "<group>"; };
 		2DE32D2B243F4666000B090D /* QuoteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteHeaderView.swift; sourceTree = "<group>"; };
@@ -114,6 +132,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D0511D8244715F100DDA550 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				2D0511DB2447163600DDA550 /* View */,
+				2D0511DA2447163000DDA550 /* Controller */,
+				2D0511D92447162A00DDA550 /* Model */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		2D0511D92447162A00DDA550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D83A5882447453C00269BC1 /* ContactConstants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D0511DA2447163000DDA550 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D0511DC2447164C00DDA550 /* ContactsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D0511DB2447163600DDA550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D0511DE2447180900DDA550 /* ContactCell.swift */,
+				2D0511E0244727C200DDA550 /* ContactHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2D1FF4872440485D0089D9BF /* HelplineCenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +234,10 @@
 			children = (
 				2D2997A6243625CC00AB4C7A /* AppDelegate.swift */,
 				2D2997A8243625CD00AB4C7A /* SceneDelegate.swift */,
+				2DCB972F2446B00600B4E448 /* MainTabBarController.swift */,
 				2D25ECA324382B18007BD169 /* Networking */,
+				2DCB97312446B04200B4E448 /* SideMenu */,
+				2D0511D8244715F100DDA550 /* Contacts */,
 				2D2997BA2436270C00AB4C7A /* Home */,
 				2D3D4FB5243AC58200C86AAE /* District */,
 				2DB82920243CCF48002D139C /* Social */,
@@ -300,6 +356,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2D7C898C2446D9C900DDCA3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DCB97362446C40500B4E448 /* Setting.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D7C898D2446D9E300DDCA3A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DCB97322446B05500B4E448 /* SideMenuVC.swift */,
+				2DCB97342446B0C800B4E448 /* ContainerVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D7C898E2446D9EE00DDCA3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D7C898F2446DA0600DDCA3A /* SettingsCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2D9824A22441CA6700666568 /* Symptom */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +424,16 @@
 				2DB82921243CCF94002D139C /* SocialVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2DCB97312446B04200B4E448 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				2D7C898E2446D9EE00DDCA3A /* View */,
+				2D7C898D2446D9E300DDCA3A /* Controller */,
+				2D7C898C2446D9C900DDCA3A /* Model */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		2DE32D24243EEEEB000B090D /* Model */ = {
@@ -527,12 +618,14 @@
 				2D6B9E42243723E0002AB29D /* PlaceCell.swift in Sources */,
 				2D3D4FBC243AD43200C86AAE /* District.swift in Sources */,
 				2D25ECB124389EAB007BD169 /* CountryDataCardState.swift in Sources */,
+				2DCB97372446C40500B4E448 /* Setting.swift in Sources */,
 				2D25ECAB24385745007BD169 /* CountryStatsHeaderCell.swift in Sources */,
 				2DEB2F76243E43D80088E176 /* HealthVC.swift in Sources */,
 				2DE32D2A243F45AA000B090D /* HealthTableHeaderView.swift in Sources */,
 				2D3D4FB7243AC5D000C86AAE /* DistrictVC.swift in Sources */,
 				2D3F2E2A2439CCDE00BAE875 /* CountryChartData.swift in Sources */,
 				2DEE5DC8243D858C009F9A3A /* SocialCell.swift in Sources */,
+				2D83A5892447453C00269BC1 /* ContactConstants.swift in Sources */,
 				2D697F942441E938007A1351 /* QuestionCard.swift in Sources */,
 				2D25ECA924382DEC007BD169 /* StateData.swift in Sources */,
 				2D25ECA724382DBC007BD169 /* StateWiseCases.swift in Sources */,
@@ -552,14 +645,21 @@
 				2D3F2E272439B0E800BAE875 /* CaseTimeSerie.swift in Sources */,
 				2D2997A9243625CD00AB4C7A /* SceneDelegate.swift in Sources */,
 				2D25ECAF24386010007BD169 /* CountryDataCard.swift in Sources */,
+				2DCB97302446B00600B4E448 /* MainTabBarController.swift in Sources */,
 				2D6F5D7C2442FC3600D57290 /* QuestionConstants.swift in Sources */,
 				2DC4F49C24375A25005A5B44 /* TableHeadingView.swift in Sources */,
+				2D0511E1244727C200DDA550 /* ContactHeader.swift in Sources */,
 				2D51B7B3243EC8DD00401044 /* HospitalData.swift in Sources */,
 				2DE32D28243EF01B000B090D /* HospitalState.swift in Sources */,
+				2D0511DF2447180900DDA550 /* ContactCell.swift in Sources */,
 				2D2997BF2436288300AB4C7A /* CountryStatsHeaderView.swift in Sources */,
+				2DCB97332446B05500B4E448 /* SideMenuVC.swift in Sources */,
+				2D0511DD2447164C00DDA550 /* ContactsVC.swift in Sources */,
 				2D3D4FBE243AD48600C86AAE /* DistrictWiseData.swift in Sources */,
 				2D6F5D792442F63D00D57290 /* AnswerCell.swift in Sources */,
 				2DE32D2C243F4666000B090D /* QuoteHeaderView.swift in Sources */,
+				2D7C89902446DA0600DDCA3A /* SettingsCollectionViewCell.swift in Sources */,
+				2DCB97352446B0C800B4E448 /* ContainerVC.swift in Sources */,
 				2D25ECB62438DD0B007BD169 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

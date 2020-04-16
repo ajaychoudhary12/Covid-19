@@ -62,7 +62,7 @@ extension StateStatsHeaderView: UICollectionViewDelegateFlowLayout, UICollection
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StateStatsHeaderCell
-    switch indexPath.row {
+    switch indexPath.item {
     case 0:
       cell.backgroundColor = .systemPink
       cell.casesLabel.text = "Confirmed"

@@ -22,7 +22,7 @@ class CountryStatsHeaderView: UICollectionReusableView {
   }()
   
   private let containerView = UIView()
-  private let cornerRadius: CGFloat = 20
+  private let cornerRadius: CGFloat = 34
   private let pageControl = UIPageControl()
   private let cellId = "cellid"
   private var countryDataCard = [CountryDataCard]()
@@ -66,8 +66,8 @@ class CountryStatsHeaderView: UICollectionReusableView {
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
     containerView.layer.cornerRadius = cornerRadius
-    containerView.layer.shadowColor = UIColor.darkGray.cgColor
-    containerView.layer.shadowOffset = CGSize(width: 5, height: 2.5)
+    containerView.layer.shadowColor = UIColor.gray.cgColor
+    containerView.layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
     containerView.layer.shadowRadius = cornerRadius
     containerView.layer.shadowOpacity = 0.9
   }
@@ -128,9 +128,9 @@ extension CountryStatsHeaderView: UICollectionViewDelegateFlowLayout, UICollecti
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CountryStatsHeaderCell
-    cell.countryDataCard = self.countryDataCard[indexPath.row]
+    cell.countryDataCard = self.countryDataCard[indexPath.item]
     
-    switch indexPath.row {
+    switch indexPath.item {
     case 0:
       cell.backgroundColor = .systemPink
       collectionView.backgroundColor = .systemPink

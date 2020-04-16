@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol DidSelectItemDelegate {
+  func didSelectItem(answer: String)
+}
+
 class QuestionCard: UICollectionViewCell {
   
-  private let collectionView: UICollectionView = {
+  let collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.sectionInset = UIEdgeInsets(top: 6.0, left: 1.0, bottom: 8.0, right: 1.0)
     layout.sectionHeadersPinToVisibleBounds = true
@@ -23,6 +27,7 @@ class QuestionCard: UICollectionViewCell {
   private let cellId = "cellid"
   private let headerId = "headerid"
   private var heightConstraint: NSLayoutConstraint!
+  var delegate: DidSelectItemDelegate?
   
   var question: Question? {
     didSet {
@@ -110,7 +115,17 @@ extension QuestionCard: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AnswerCell
     cell.answer = question?.answers[indexPath.item]
+    cell.backgroundColor = .systemGroupedBackground
+    cell.answerLabel.textColor = .systemPink
     return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let cell = collectionView.cellForItem(at: indexPath) as! AnswerCell
+    cell.backgroundColor = .systemPink
+    cell.answerLabel.textColor = .white
+    let answer = question?.answers[indexPath.item]
+    delegate?.didSelectItem(answer: answer ?? "")
   }
   
   //Customising Header

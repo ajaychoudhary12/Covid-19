@@ -10,11 +10,11 @@ import UIKit
 
 class AnswerCell: UICollectionViewCell {
   
-  private let answerButton = UIButton(type: .system)
+  let answerLabel = UILabel()
   private let cornerRadius: CGFloat = 15
   var answer: String? {
     didSet {
-      answerButton.setTitle(answer, for: .normal)
+      answerLabel.text = answer
     }
   }
   
@@ -46,21 +46,17 @@ class AnswerCell: UICollectionViewCell {
   }
   
   private func setupAnswerButton() {
-    addSubview(answerButton)
-    answerButton.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(answerLabel)
+    answerLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = answerButton.topAnchor.constraint(equalTo: topAnchor)
-    let leading = answerButton.leadingAnchor.constraint(equalTo: leadingAnchor)
-    let trailing = answerButton.trailingAnchor.constraint(equalTo: trailingAnchor)
-    let bottom = answerButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+    let top = answerLabel.topAnchor.constraint(equalTo: topAnchor)
+    let leading = answerLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+    let trailing = answerLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+    let bottom = answerLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
-    answerButton.titleLabel?.font =  .boldSystemFont(ofSize: 16)
-    answerButton.setTitleColor(.systemPink, for: .normal)
-    answerButton.addTarget(self, action: #selector(answerAction), for: .touchUpInside)
-  }
-  
-  @objc private func answerAction() {
-    
+    answerLabel.font =  .boldSystemFont(ofSize: 16)
+    answerLabel.textColor = .systemPink
+    answerLabel.textAlignment = .center
   }
 }

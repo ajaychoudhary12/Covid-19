@@ -65,10 +65,10 @@ class PlaceCell: UICollectionViewCell {
   
   private func setupShadow() {
     layer.cornerRadius = cornerRadius
-    layer.shadowColor = UIColor.gray.cgColor
-    layer.shadowOffset = CGSize(width: 5, height: 5)
+    layer.shadowColor = UIColor.lightGray.cgColor
+    layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
     layer.shadowRadius = cornerRadius
-    layer.shadowOpacity = 0.5
+    layer.shadowOpacity = 0.8
     
     contentView.layer.cornerRadius = cornerRadius
     contentView.clipsToBounds = true

@@ -11,7 +11,7 @@ class QuestionConstants {
   static let answerSet2 = ["Male","Female","Other"]
   static let answerSet3 = ["Less Than 12 Years","12-50 Years","51-60","Above 60 Years"]
   static let answerSet4 = ["Asthma","Chronic Lung Disease (COPD)","Diabetes","Heart Disease","Immuno-Compromised Conditions","Pregnancy","None Of The Above"]
-  static let answerSet5 = ["China","Italy","Spain","Iran","Europe","Middle East","Southeast Asia","Country Not Listed Above","None Of the Above"]
+  static let answerSet5 = ["China","Italy","Spain","Iran","Europe","Middle East","Southeast Asia","Country Not Listed Above","None Of The Above"]
   static let defaultSet = ["Yes","No"]
   
   private static let ques1 = "For Whom Are You Taking This Test ?"
@@ -29,7 +29,7 @@ class QuestionConstants {
   private static let ques13 = "Do You Feel Shortness Of Breath ?"
   private static let ques14 = "Do You Have Coarseness in Voice ?"
   
-  static let questions: [Question] = [
+  static let questions = [
     Question(question: ques1, answers: answerSet1),
     Question(question: ques2, answers: answerSet2),
     Question(question: ques3, answers: answerSet3),

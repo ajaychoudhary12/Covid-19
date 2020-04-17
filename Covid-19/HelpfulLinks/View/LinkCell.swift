@@ -1,25 +1,25 @@
 //
-//  ContactCell.swift
+//  LinkCell.swift
 //  Covid-19
 //
-//  Created by Ajay Choudhary on 15/04/20.
+//  Created by Ajay Choudhary on 16/04/20.
 //  Copyright © 2020 Ajay Choudhary. All rights reserved.
 //
 
 import UIKit
 
-class ContactCell: UICollectionViewCell {
+class LinkCell: UICollectionViewCell {
   
-  private let stateLabel = UILabel()
-  private let numberButton = UIButton(type: .system)
+  private let linkNameLabel = UILabel()
+  private let linkButton = UIButton(type: .system)
   private let callButton = UIButton(type: .system)
   private let bottomBorder = UIView()
   
-  var contact: HelpLineContact? {
+  var link: Link? {
     didSet {
-      guard let contact = contact else { return }
-      numberButton.setTitle(contact.number, for: .normal)
-      stateLabel.text = contact.state
+      guard let link = link else { return }
+      linkButton.setTitle(link.url, for: .normal)
+      linkNameLabel.text = link.name
     }
   }
   
@@ -36,38 +36,40 @@ class ContactCell: UICollectionViewCell {
     backgroundColor = .white
     setupStateLabel()
     setupNumberLabel()
-    setupCallButton()
+    //setupCallButton()
     setupBottomBorder()
   }
   
   private func setupStateLabel() {
-    addSubview(stateLabel)
-    stateLabel.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(linkNameLabel)
+    linkNameLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = stateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8)
-    let leading = stateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
-    let trailing = stateLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-    let height = stateLabel.heightAnchor.constraint(equalToConstant: 22)
+    let top = linkNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8)
+    let leading = linkNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27)
+    let trailing = linkNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+    let height = linkNameLabel.heightAnchor.constraint(equalToConstant: 22)
     NSLayoutConstraint.activate([top, leading, trailing, height])
     
-    stateLabel.font = .boldSystemFont(ofSize: 17)
-    stateLabel.textColor = .black
+    linkNameLabel.font = .boldSystemFont(ofSize: 17)
+    linkNameLabel.adjustsFontSizeToFitWidth = true
+    linkNameLabel.minimumScaleFactor = 0.82
+    linkNameLabel.textColor = .black
   }
   
   private func setupNumberLabel(){
-    addSubview(numberButton)
-    numberButton.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(linkButton)
+    linkButton.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = numberButton.topAnchor.constraint(equalTo: stateLabel.bottomAnchor, constant: 6)
-    let leading = numberButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
-    let width = numberButton.widthAnchor.constraint(equalToConstant: 140)
-    let height = numberButton.heightAnchor.constraint(equalToConstant: 22)
-    NSLayoutConstraint.activate([top, leading, width, height])
+    let top = linkButton.topAnchor.constraint(equalTo: linkNameLabel.bottomAnchor, constant: 6)
+    let leading = linkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27)
+    let trailing = linkButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+    let height = linkButton.heightAnchor.constraint(equalToConstant: 22)
+    NSLayoutConstraint.activate([top, leading, trailing, height])
     
-    numberButton.setTitleColor(.systemBlue, for: .normal)
-    numberButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
-    numberButton.contentHorizontalAlignment = .left
-    numberButton.addTarget(self, action: #selector(numberAction), for: .touchUpInside)
+    linkButton.setTitleColor(.systemBlue, for: .normal)
+    linkButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+    linkButton.contentHorizontalAlignment = .left
+    linkButton.addTarget(self, action: #selector(numberAction), for: .touchUpInside)
   }
   
   private func setupCallButton() {
@@ -81,7 +83,7 @@ class ContactCell: UICollectionViewCell {
     NSLayoutConstraint.activate([centerY, trailing, height, width])
     
     callButton.layer.cornerRadius = 50 / 2
-    callButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
+    callButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
     callButton.setImage(UIImage(named: "phone-call")?.withRenderingMode(.alwaysOriginal), for: .normal)
     callButton.addTarget(self, action: #selector(numberAction), for: .touchUpInside)
   }
@@ -90,7 +92,7 @@ class ContactCell: UICollectionViewCell {
     addSubview(bottomBorder)
     bottomBorder.translatesAutoresizingMaskIntoConstraints = false
     
-    let leading = bottomBorder.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27)
+    let leading = bottomBorder.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25)
     let trailing = bottomBorder.trailingAnchor.constraint(equalTo: trailingAnchor)
     let height = bottomBorder.heightAnchor.constraint(equalToConstant: 0.5)
     let bottom = bottomBorder.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -100,9 +102,10 @@ class ContactCell: UICollectionViewCell {
   }
   
   @objc private func numberAction(_ sender: UIButton) {
-    guard let contact = contact else{ return }
-    guard let url = URL(string: "telprompt://\(contact.number)"),
+    guard let link = link else { return }
+    guard let url = URL(string: link.url),
       UIApplication.shared.canOpenURL(url) else { return }
     UIApplication.shared.open(url)
   }
+  
 }

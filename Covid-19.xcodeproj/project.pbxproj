@@ -10,6 +10,9 @@
 		2D0511DD2447164C00DDA550 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0511DC2447164C00DDA550 /* ContactsVC.swift */; };
 		2D0511DF2447180900DDA550 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0511DE2447180900DDA550 /* ContactCell.swift */; };
 		2D0511E1244727C200DDA550 /* ContactHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0511E0244727C200DDA550 /* ContactHeader.swift */; };
+		2D109127244806EE00CB2C34 /* LinkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D109126244806EE00CB2C34 /* LinkConstants.swift */; };
+		2D1091292448098600CB2C34 /* HelpfulLinksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1091282448098600CB2C34 /* HelpfulLinksVC.swift */; };
+		2D10912B24480AAE00CB2C34 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10912A24480AAE00CB2C34 /* LinkCell.swift */; };
 		2D1FF48B244048B60089D9BF /* HelplineCentersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FF48A244048B60089D9BF /* HelplineCentersVC.swift */; };
 		2D1FF48D24404D9D0089D9BF /* HelplineCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FF48C24404D9D0089D9BF /* HelplineCenterCell.swift */; };
 		2D25ECA524382B40007BD169 /* CovidClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25ECA424382B40007BD169 /* CovidClient.swift */; };
@@ -58,6 +61,7 @@
 		2DEB2F7A243E45AB0088E176 /* HealthStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB2F79243E45AB0088E176 /* HealthStateCell.swift */; };
 		2DEC22622438FB13005A5FDA /* CustomAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC22612438FB13005A5FDA /* CustomAlertVC.swift */; };
 		2DEE5DC8243D858C009F9A3A /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEE5DC7243D858C009F9A3A /* SocialCell.swift */; };
+		2DF356B72448A43D00D46AEF /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF356B62448A43D00D46AEF /* AboutUsVC.swift */; };
 		DDFE0E64589E1BF5C9EFA072 /* Pods_Covid_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7743D02E447109434E547795 /* Pods_Covid_19.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,9 @@
 		2D0511DC2447164C00DDA550 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		2D0511DE2447180900DDA550 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		2D0511E0244727C200DDA550 /* ContactHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeader.swift; sourceTree = "<group>"; };
+		2D109126244806EE00CB2C34 /* LinkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkConstants.swift; sourceTree = "<group>"; };
+		2D1091282448098600CB2C34 /* HelpfulLinksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpfulLinksVC.swift; sourceTree = "<group>"; };
+		2D10912A24480AAE00CB2C34 /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		2D1FF48A244048B60089D9BF /* HelplineCentersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelplineCentersVC.swift; sourceTree = "<group>"; };
 		2D1FF48C24404D9D0089D9BF /* HelplineCenterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelplineCenterCell.swift; sourceTree = "<group>"; };
 		2D25ECA424382B40007BD169 /* CovidClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidClient.swift; sourceTree = "<group>"; };
@@ -115,6 +122,7 @@
 		2DEB2F79243E45AB0088E176 /* HealthStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStateCell.swift; sourceTree = "<group>"; };
 		2DEC22612438FB13005A5FDA /* CustomAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertVC.swift; sourceTree = "<group>"; };
 		2DEE5DC7243D858C009F9A3A /* SocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
+		2DF356B62448A43D00D46AEF /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		7743D02E447109434E547795 /* Pods_Covid_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0D988D78806F4AD624F305 /* Pods-Covid-19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19.debug.xcconfig"; path = "Target Support Files/Pods-Covid-19/Pods-Covid-19.debug.xcconfig"; sourceTree = "<group>"; };
 		F92A189F88D969B758221880 /* Pods-Covid-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19.release.xcconfig"; path = "Target Support Files/Pods-Covid-19/Pods-Covid-19.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +173,40 @@
 				2D0511E0244727C200DDA550 /* ContactHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2D1091222448067C00CB2C34 /* HelpfulLinks */ = {
+			isa = PBXGroup;
+			children = (
+				2D109124244806BD00CB2C34 /* View */,
+				2D109125244806C300CB2C34 /* Controller */,
+				2D109123244806B800CB2C34 /* Model */,
+			);
+			path = HelpfulLinks;
+			sourceTree = "<group>";
+		};
+		2D109123244806B800CB2C34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D109126244806EE00CB2C34 /* LinkConstants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D109124244806BD00CB2C34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D10912A24480AAE00CB2C34 /* LinkCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D109125244806C300CB2C34 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D1091282448098600CB2C34 /* HelpfulLinksVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		2D1FF4872440485D0089D9BF /* HelplineCenters */ = {
@@ -236,8 +278,10 @@
 				2D2997A8243625CD00AB4C7A /* SceneDelegate.swift */,
 				2DCB972F2446B00600B4E448 /* MainTabBarController.swift */,
 				2D25ECA324382B18007BD169 /* Networking */,
+				2DF356B32448A40000D46AEF /* AboutUs */,
 				2DCB97312446B04200B4E448 /* SideMenu */,
 				2D0511D8244715F100DDA550 /* Contacts */,
+				2D1091222448067C00CB2C34 /* HelpfulLinks */,
 				2D2997BA2436270C00AB4C7A /* Home */,
 				2D3D4FB5243AC58200C86AAE /* District */,
 				2DB82920243CCF48002D139C /* Social */,
@@ -481,6 +525,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2DF356B32448A40000D46AEF /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				2DF356B52448A42000D46AEF /* Controller */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		2DF356B52448A42000D46AEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DF356B62448A43D00D46AEF /* AboutUsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		8A549917EE2FFEBAC33D11C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,15 +688,19 @@
 				2D83A5892447453C00269BC1 /* ContactConstants.swift in Sources */,
 				2D697F942441E938007A1351 /* QuestionCard.swift in Sources */,
 				2D25ECA924382DEC007BD169 /* StateData.swift in Sources */,
+				2D1091292448098600CB2C34 /* HelpfulLinksVC.swift in Sources */,
 				2D25ECA724382DBC007BD169 /* StateWiseCases.swift in Sources */,
 				2D25ECB42438DAD8007BD169 /* ErrorMessage.swift in Sources */,
 				2D3D4FC2243B18F400C86AAE /* StateStatsHeaderView.swift in Sources */,
 				2D9824A62441D5BA00666568 /* SymptomCheckerVC.swift in Sources */,
+				2DF356B72448A43D00D46AEF /* AboutUsVC.swift in Sources */,
 				2D2997AB243625CD00AB4C7A /* HomeVC.swift in Sources */,
 				2D2997A7243625CD00AB4C7A /* AppDelegate.swift in Sources */,
 				2DEB2F7A243E45AB0088E176 /* HealthStateCell.swift in Sources */,
+				2D109127244806EE00CB2C34 /* LinkConstants.swift in Sources */,
 				2DEC22622438FB13005A5FDA /* CustomAlertVC.swift in Sources */,
 				2D1FF48D24404D9D0089D9BF /* HelplineCenterCell.swift in Sources */,
+				2D10912B24480AAE00CB2C34 /* LinkCell.swift in Sources */,
 				2DB82922243CCF94002D139C /* SocialVC.swift in Sources */,
 				2D3D4FC4243B1F3C00C86AAE /* StateStatsHeaderCell.swift in Sources */,
 				2D51B7B5243EC91900401044 /* MedicalCollege.swift in Sources */,

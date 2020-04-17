@@ -60,17 +60,17 @@ class ContactHeader: UICollectionReusableView {
     numberLabel.textColor = .systemBlue
     numberLabel.textAlignment = .center
     numberLabel.text = "+91-11-23978046"
-    numberLabel.font = .boldSystemFont(ofSize: 19)
+    numberLabel.font = .boldSystemFont(ofSize: 18)
   }
   
   private func setupBottomBorder() {
     addSubview(bottomBorder)
     bottomBorder.translatesAutoresizingMaskIntoConstraints = false
     
-    let leading = bottomBorder.leadingAnchor.constraint(equalTo: leadingAnchor)
+    let leading = bottomBorder.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27)
     let trailing = bottomBorder.trailingAnchor.constraint(equalTo: trailingAnchor)
     let height = bottomBorder.heightAnchor.constraint(equalToConstant: 0.5)
-    let bottom = bottomBorder.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
+    let bottom = bottomBorder.bottomAnchor.constraint(equalTo: bottomAnchor)
     NSLayoutConstraint.activate([leading, trailing, height, bottom])
     
     bottomBorder.backgroundColor = .lightGray

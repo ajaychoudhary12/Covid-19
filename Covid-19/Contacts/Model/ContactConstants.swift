@@ -15,7 +15,7 @@ class ContactConstants {
     HelpLineContact(state: "Bihar", number: "104"),
     HelpLineContact(state: "Chandigarh", number: "9779558282"),
     HelpLineContact(state: "Chhattisgarh", number: "104"),
-    HelpLineContact(state: "Dadra & Nagar Haveli & Daman & Diu", number: "104"),
+    HelpLineContact(state: "Dadra & Nagar Haveli, Daman & Diu", number: "104"),
     HelpLineContact(state: "Delhi", number: "011-22307145"),
     HelpLineContact(state: "Goa", number: "104"),
     HelpLineContact(state: "Gujrat", number: "104"),

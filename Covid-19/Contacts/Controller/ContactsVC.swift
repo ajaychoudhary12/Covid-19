@@ -74,6 +74,8 @@ extension ContactsVC: UICollectionViewDataSource {
     return cell
   }
   
+  //Customising Header
+  
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     if indexPath.section == 0 {
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: quoteHeaderId, for: indexPath) as! QuoteHeaderView

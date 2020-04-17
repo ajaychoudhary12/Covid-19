@@ -14,6 +14,8 @@ class SideMenuVC: UIViewController {
   private let appImage = UIImageView()
   private let appNameLabel = UILabel()
   private let quoteLabel = UILabel()
+  private let border = UIView()
+  private let aboutUsButton = UIButton(type: .system)
   
   private let cellId = "cellid"
   private let settings = [
@@ -41,6 +43,8 @@ class SideMenuVC: UIViewController {
     setupAppNameLabel()
     setupQuoteLabel()
     setupCollectionView()
+    setupBorder()
+    setupAboutUsButton()
   }
   
   private func setupAppImage() {
@@ -103,6 +107,45 @@ class SideMenuVC: UIViewController {
     collectionView.dataSource = self
     collectionView.register(SettingsCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
   }
+  
+  private func setupBorder() {
+    view.addSubview(border)
+    border.translatesAutoresizingMaskIntoConstraints = false
+    
+    let top = border.topAnchor.constraint(equalTo: collectionView.bottomAnchor)
+    let leading = border.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+    let trailing = border.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    let height = border.heightAnchor.constraint(equalToConstant: 0.5)
+    NSLayoutConstraint.activate([top, leading, trailing, height])
+    
+    border.backgroundColor = .lightGray
+  }
+  
+  private func setupAboutUsButton() {
+    view.addSubview(aboutUsButton)
+    aboutUsButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    let top = aboutUsButton.topAnchor.constraint(equalTo: border.bottomAnchor, constant: 12)
+    let leading = aboutUsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22)
+    let width = aboutUsButton.widthAnchor.constraint(equalToConstant: 95)
+    let height = aboutUsButton.heightAnchor.constraint(equalToConstant: 50)
+    NSLayoutConstraint.activate([top, leading, height, width])
+    
+    aboutUsButton.setTitle("About Us", for: .normal)
+    aboutUsButton.setTitleColor(.systemPink, for: .normal)
+    aboutUsButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+    aboutUsButton.addTarget(self, action: #selector(aboutUsAction), for: .touchUpInside)
+  }
+  
+  //MARK: - Action
+  
+  @objc private func aboutUsAction() {
+    let aboutUsVC = AboutUsVC()
+    guard let parent = self.parent else { return }
+    guard let navController = parent.navigationController else { return }
+    navController.pushViewController(aboutUsVC, animated: true)
+  }
+  
 }
 
   //MARK: - Extensions
@@ -120,13 +163,21 @@ extension SideMenuVC: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     switch indexPath.item {
-    case 2:
-      let contactsVC = ContactsVC()
-      guard let parent = self.parent else { return }
-      guard let navController = parent.navigationController else { return }
-      navController.pushViewController(contactsVC, animated: true)
-    default:
-      print("yo")
+      case 0:
+        print("yeloow")
+      case 2:
+        let contactsVC = ContactsVC()
+        guard let parent = self.parent else { return }
+        guard let navController = parent.navigationController else { return }
+        navController.pushViewController(contactsVC, animated: true)
+    
+      case 3:
+        let helpfulLinksVC = HelpfulLinksVC()
+        guard let parent = self.parent else { return }
+        guard let navController = parent.navigationController else { return }
+        navController.pushViewController(helpfulLinksVC, animated: true)
+      default:
+        print("yo")
     }
   }
 }

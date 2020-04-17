@@ -64,7 +64,7 @@ class SettingsCollectionViewCell: UICollectionViewCell {
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     
     let centerY = titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-    let leading = titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 22)
+    let leading = titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12)
     let trailing = titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
     let height = titleLabel.heightAnchor.constraint(equalToConstant: 40)
     NSLayoutConstraint.activate([centerY, leading, trailing, height])

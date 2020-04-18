@@ -55,13 +55,23 @@ class ContainerVC: UIViewController {
   //MARK: - Extensions
 
 extension ContainerVC: MainTabBarViewControllerDelegate {
-  
   func toggleLeftPanel() {
-      let notAlreadyExpanded = (expanded != true)
-      if notAlreadyExpanded {
-          addLeftVC()
-      }
-      animateLeftPanel(shouldExpand: notAlreadyExpanded)
+    let notAlreadyExpanded = (expanded != true)
+    if notAlreadyExpanded {
+      addLeftVC()
+    }
+    animateLeftPanel(shouldExpand: notAlreadyExpanded)
+  }
+}
+
+extension ContainerVC: SideMenuControllerDelegate {
+  func toggleOffSideMenu() {
+    let notAlreadyExpanded = (expanded != true)
+    if notAlreadyExpanded {
+      addLeftVC()
+    }
+    animateLeftPanel(shouldExpand: notAlreadyExpanded)
+    tabViewController.selectedIndex = 0
   }
 }
 
@@ -72,6 +82,7 @@ extension ContainerVC {
     let vc = SideMenuVC()
     addChildSidePanelController(vc)
     leftVC = vc
+    leftVC?.delegate = self
   }
   
   func addChildSidePanelController(_ leftViewController: SideMenuVC) {

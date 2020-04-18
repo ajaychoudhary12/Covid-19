@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SideMenuControllerDelegate {
+  func toggleOffSideMenu()
+}
+
 class SideMenuVC: UIViewController {
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -16,6 +20,8 @@ class SideMenuVC: UIViewController {
   private let quoteLabel = UILabel()
   private let border = UIView()
   private let aboutUsButton = UIButton(type: .system)
+  
+  var delegate: SideMenuControllerDelegate?
   
   private let cellId = "cellid"
   private let settings = [
@@ -146,6 +152,10 @@ class SideMenuVC: UIViewController {
     navController.pushViewController(aboutUsVC, animated: true)
   }
   
+  func toggleOffSideMenu() {
+    delegate?.toggleOffSideMenu()
+  }
+  
 }
 
   //MARK: - Extensions
@@ -163,6 +173,8 @@ extension SideMenuVC: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     switch indexPath.item {
+      case 0:
+        toggleOffSideMenu()
       case 1:
         let introVC = IntroVC()
         present(introVC, animated: true)

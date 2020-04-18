@@ -38,7 +38,7 @@ class DistrictVC: UIViewController {
   }
   
   private func setupView() {
-    view.backgroundColor = .systemGroupedBackground
+    view.backgroundColor = .white
     self.title = stateData.state
     setupCollectionView()
   }
@@ -56,7 +56,7 @@ class DistrictVC: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     collectionView.bounces = false
     collectionView.alwaysBounceVertical = false
     

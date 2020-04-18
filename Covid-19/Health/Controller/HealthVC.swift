@@ -40,7 +40,7 @@ class HealthVC: UIViewController {
   }
   
   private func setupView() {
-    view.backgroundColor = .systemGroupedBackground
+    view.backgroundColor = .white
     setupCollectionView()
     setupActivityIndicator()
   }
@@ -58,7 +58,7 @@ class HealthVC: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     collectionView.bounces = false
     collectionView.alwaysBounceVertical = false
     

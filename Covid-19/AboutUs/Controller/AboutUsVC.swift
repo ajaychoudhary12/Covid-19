@@ -17,10 +17,6 @@ class AboutUsVC: UIViewController {
   private let privacyPolicyButton = UIButton(type: .system)
   private let termsAndConditionsButton = UIButton(type: .system)
   
-  private let privacyTopBorder = UIView()
-  private let privacyBottomBorder = UIView()
-  private let termsAndConditionsBottomBorder = UIView()
-  
   private let developedByLabel = UILabel()
   private let ajayLabel = UILabel()
   private let ajayLabelBottomBorder = UILabel()
@@ -38,10 +34,6 @@ class AboutUsVC: UIViewController {
     setupAppNameLabel()
     setupVersionLabel()
     setupQuoteLabel()
-    setupPrivacyPolicyButton()
-    setupPrivacyPolicyBottomBorder()
-    setupTermsAndConditionButton()
-    setupTermsAndConditionsBottomBorder()
     setupDevelopedByLabel()
     setupAjayLabel()
     setupAjayLabelBottomBorder()
@@ -52,7 +44,7 @@ class AboutUsVC: UIViewController {
     view.addSubview(appImage)
     appImage.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = appImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)
+    let top = appImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60)
     let centerX = appImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)
     let height = appImage.heightAnchor.constraint(equalToConstant: 80)
     let width = appImage.widthAnchor.constraint(equalToConstant: 80)
@@ -66,7 +58,7 @@ class AboutUsVC: UIViewController {
     view.addSubview(appNameLabel)
     appNameLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = appNameLabel.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 18)
+    let top = appNameLabel.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 14)
     let leading = appNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     let trailing = appNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = appNameLabel.heightAnchor.constraint(equalToConstant: 30)
@@ -82,7 +74,7 @@ class AboutUsVC: UIViewController {
     view.addSubview(versionLabel)
     versionLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = versionLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 12)
+    let top = versionLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 8)
     let leading = versionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     let trailing = versionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = versionLabel.heightAnchor.constraint(equalToConstant: 20)
@@ -98,7 +90,7 @@ class AboutUsVC: UIViewController {
     view.addSubview(quoteLabel)
     quoteLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = quoteLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 24)
+    let top = quoteLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 20)
     let leading = quoteLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     let trailing = quoteLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = quoteLabel.heightAnchor.constraint(equalToConstant: 22)
@@ -110,69 +102,11 @@ class AboutUsVC: UIViewController {
     quoteLabel.font = .boldSystemFont(ofSize: 17)
   }
   
-  private func setupPrivacyPolicyButton() {
-    view.addSubview(privacyPolicyButton)
-    privacyPolicyButton.translatesAutoresizingMaskIntoConstraints = false
-    
-    let top = privacyPolicyButton.topAnchor.constraint(equalTo: quoteLabel.bottomAnchor, constant: 46)
-    let centerX = privacyPolicyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-    let height = privacyPolicyButton.heightAnchor.constraint(equalToConstant: 50)
-    let width = privacyPolicyButton.widthAnchor.constraint(equalToConstant: 190)
-    NSLayoutConstraint.activate([top, centerX, height, width])
-    
-    privacyPolicyButton.setTitle("PRIVACY POLICY", for: .normal)
-    privacyPolicyButton.setTitleColor(.systemPink, for: .normal)
-    privacyPolicyButton.contentHorizontalAlignment = .center
-    privacyPolicyButton.titleLabel?.font = .systemFont(ofSize: 18)
-  }
-  
-  private func setupPrivacyPolicyBottomBorder() {
-    view.addSubview(privacyBottomBorder)
-    privacyBottomBorder.translatesAutoresizingMaskIntoConstraints = false
-    
-    let top = privacyBottomBorder.topAnchor.constraint(equalTo: privacyPolicyButton.bottomAnchor, constant: 1)
-    let leading = privacyBottomBorder.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-    let trailing = privacyBottomBorder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    let height = privacyBottomBorder.heightAnchor.constraint(equalToConstant: 0.5)
-    NSLayoutConstraint.activate([top, leading, trailing, height])
-    
-    privacyBottomBorder.backgroundColor = .lightGray
-  }
-  
-  private func setupTermsAndConditionButton() {
-    view.addSubview(termsAndConditionsButton)
-    termsAndConditionsButton.translatesAutoresizingMaskIntoConstraints = false
-    
-    let top = termsAndConditionsButton.topAnchor.constraint(equalTo: privacyBottomBorder.bottomAnchor, constant: 1)
-    let centerX = termsAndConditionsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-    let height = termsAndConditionsButton.heightAnchor.constraint(equalToConstant: 50)
-    let width = termsAndConditionsButton.widthAnchor.constraint(equalToConstant: 242)
-    NSLayoutConstraint.activate([top, centerX, height, width])
-    
-    termsAndConditionsButton.setTitle("TERMS AND CONDITIONS", for: .normal)
-    termsAndConditionsButton.setTitleColor(.systemPink, for: .normal)
-    termsAndConditionsButton.contentHorizontalAlignment = .center
-    termsAndConditionsButton.titleLabel?.font = .systemFont(ofSize: 18)
-  }
-  
-  private func setupTermsAndConditionsBottomBorder() {
-    view.addSubview(termsAndConditionsBottomBorder)
-    termsAndConditionsBottomBorder.translatesAutoresizingMaskIntoConstraints = false
-    
-    let top = termsAndConditionsBottomBorder.topAnchor.constraint(equalTo: termsAndConditionsButton.bottomAnchor, constant: 1)
-    let leading = termsAndConditionsBottomBorder.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-    let trailing = termsAndConditionsBottomBorder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    let height = termsAndConditionsBottomBorder.heightAnchor.constraint(equalToConstant: 0.5)
-    NSLayoutConstraint.activate([top, leading, trailing, height])
-    
-    termsAndConditionsBottomBorder.backgroundColor = .lightGray
-  }
-  
   private func setupDevelopedByLabel() {
     view.addSubview(developedByLabel)
     developedByLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = developedByLabel.topAnchor.constraint(equalTo: termsAndConditionsBottomBorder.bottomAnchor, constant: 36)
+    let top = developedByLabel.topAnchor.constraint(equalTo: quoteLabel.bottomAnchor, constant: 86)
     let leading = developedByLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     let trailing = developedByLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = developedByLabel.heightAnchor.constraint(equalToConstant: 62)
@@ -206,7 +140,7 @@ class AboutUsVC: UIViewController {
     view.addSubview(ajayLabelBottomBorder)
     ajayLabelBottomBorder.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = ajayLabelBottomBorder.topAnchor.constraint(equalTo: ajayLabel.bottomAnchor, constant: 2)
+    let top = ajayLabelBottomBorder.topAnchor.constraint(equalTo: ajayLabel.bottomAnchor, constant: 4)
     let leading = ajayLabelBottomBorder.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     let trailing = ajayLabelBottomBorder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = ajayLabelBottomBorder.heightAnchor.constraint(equalToConstant: 0.5)

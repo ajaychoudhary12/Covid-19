@@ -37,7 +37,7 @@ class SocialCell: UICollectionViewCell {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupWebView()
   }
   

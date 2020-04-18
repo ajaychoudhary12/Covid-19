@@ -57,7 +57,7 @@ class PlaceCell: UICollectionViewCell {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupShadow()
     setupStateNameLabel()
     setupCountLabel()

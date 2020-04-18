@@ -35,7 +35,7 @@ class HelplineCentersVC: UIViewController {
   }
   
   private func setupView() {
-    view.backgroundColor = .systemGroupedBackground
+    view.backgroundColor = .white
     self.title = hospitalState.name
     setupCollectionView()
   }
@@ -53,7 +53,7 @@ class HelplineCentersVC: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     collectionView.bounces = false
     collectionView.alwaysBounceVertical = false
     collectionView.register(HelplineCenterCell.self, forCellWithReuseIdentifier: cellId)

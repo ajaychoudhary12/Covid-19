@@ -41,7 +41,7 @@ class SymptomCheckerVC: UIViewController {
   }
   
   private func setupView() {
-    view.backgroundColor = .systemGroupedBackground
+    view.backgroundColor = .white
     setupCollectionView()
     setupHeadingLabel()
   }
@@ -59,7 +59,7 @@ class SymptomCheckerVC: UIViewController {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.isPagingEnabled = true
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     collectionView.showsHorizontalScrollIndicator = false
     collectionView.isScrollEnabled = false
     collectionView.register(QuestionCard.self, forCellWithReuseIdentifier: cellId)

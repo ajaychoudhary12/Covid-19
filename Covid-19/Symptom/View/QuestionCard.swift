@@ -57,7 +57,7 @@ class QuestionCard: UICollectionViewCell {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupContainerView()
     setupCollectionView()
   }
@@ -94,7 +94,7 @@ class QuestionCard: UICollectionViewCell {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.isPagingEnabled = true
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     
     collectionView.layer.cornerRadius = cornerRadius
     collectionView.clipsToBounds = true
@@ -115,7 +115,7 @@ extension QuestionCard: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AnswerCell
     cell.answer = question?.answers[indexPath.item]
-    cell.backgroundColor = .systemGroupedBackground
+    cell.backgroundColor = .white
     cell.answerLabel.textColor = .systemPink
     return cell
   }

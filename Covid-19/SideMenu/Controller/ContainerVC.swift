@@ -16,8 +16,16 @@ class ContainerVC: UIViewController {
   private var leftVC: SideMenuVC?
   private let centerPanelExpandedOffset: CGFloat = 90
   
+  private let userDefaults = UserDefaults.standard
+  private var hasAlreadyLaunched: Bool!
+  
   override func loadView() {
     super.loadView()
+    hasAlreadyLaunched = userDefaults.bool(forKey: "alreadyLaunched")
+    if hasAlreadyLaunched { hasAlreadyLaunched = true } else {
+      self.present(IntroVC(), animated: true)
+      userDefaults.set(true, forKey: "alreadyLaunched")
+    }
     setupView()
   }
   
@@ -44,6 +52,8 @@ class ContainerVC: UIViewController {
   }
 }
 
+  //MARK: - Extensions
+
 extension ContainerVC: MainTabBarViewControllerDelegate {
   
   func toggleLeftPanel() {
@@ -53,12 +63,15 @@ extension ContainerVC: MainTabBarViewControllerDelegate {
       }
       animateLeftPanel(shouldExpand: notAlreadyExpanded)
   }
+}
+
+extension ContainerVC {
   
   func addLeftVC() {
-      guard leftVC == nil else { return }
-      let vc = SideMenuVC()
-      addChildSidePanelController(vc)
-      leftVC = vc
+    guard leftVC == nil else { return }
+    let vc = SideMenuVC()
+    addChildSidePanelController(vc)
+    leftVC = vc
   }
   
   func addChildSidePanelController(_ leftViewController: SideMenuVC) {

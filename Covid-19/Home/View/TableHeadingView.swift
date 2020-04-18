@@ -49,7 +49,7 @@ class TableHeadingView: UICollectionReusableView {
     let bottom = parentContainerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
-    parentContainerView.backgroundColor = .systemGroupedBackground
+    parentContainerView.backgroundColor = .white
     parentContainerView.layer.cornerRadius = cornerRadius
     parentContainerView.layer.shadowColor = UIColor.lightGray.cgColor
     parentContainerView.layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
@@ -67,7 +67,7 @@ class TableHeadingView: UICollectionReusableView {
     let bottom = containerView.bottomAnchor.constraint(equalTo: parentContainerView.bottomAnchor)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
-    containerView.backgroundColor = .systemGroupedBackground
+    containerView.backgroundColor = .white
     containerView.layer.cornerRadius = cornerRadius
     containerView.clipsToBounds = true
   }

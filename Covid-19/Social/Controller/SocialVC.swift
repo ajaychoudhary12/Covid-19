@@ -38,7 +38,7 @@ class SocialVC: UIViewController {
   }
   
   private func setupView() {
-    view.backgroundColor = .systemGroupedBackground
+    view.backgroundColor = .white
     self.side = (view.frame.width / 5)
     setupCvContainerView()
     setupCollectionView()
@@ -78,7 +78,7 @@ class SocialVC: UIViewController {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.isPagingEnabled = true
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     
     collectionView.layer.cornerRadius = cvCornerRadius
     collectionView.clipsToBounds = true

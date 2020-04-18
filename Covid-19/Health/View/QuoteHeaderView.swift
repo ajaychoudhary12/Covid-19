@@ -22,7 +22,7 @@ class QuoteHeaderView: UICollectionReusableView {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupQuoteLabel()
   }
   

@@ -31,7 +31,7 @@ class StateStatsHeaderView: UICollectionReusableView {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupCollectionView()
   }
   
@@ -47,7 +47,7 @@ class StateStatsHeaderView: UICollectionReusableView {
     
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     
     collectionView.showsVerticalScrollIndicator = false
     collectionView.showsHorizontalScrollIndicator = false

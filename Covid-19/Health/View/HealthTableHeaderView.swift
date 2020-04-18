@@ -26,7 +26,7 @@ class HealthTableHeaderView: UICollectionReusableView {
   
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupParentContainerView()
     setupContainerView()
     setupHelpLineLabel()
@@ -42,7 +42,7 @@ class HealthTableHeaderView: UICollectionReusableView {
     let bottom = parentContainerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
-    parentContainerView.backgroundColor = .systemGroupedBackground
+    parentContainerView.backgroundColor = .white
     parentContainerView.layer.cornerRadius = cornerRadius
     parentContainerView.layer.shadowColor = UIColor.lightGray.cgColor
     parentContainerView.layer.shadowOffset = CGSize(width: 2.5, height: 2.5)
@@ -60,7 +60,7 @@ class HealthTableHeaderView: UICollectionReusableView {
     let bottom = containerView.bottomAnchor.constraint(equalTo: parentContainerView.bottomAnchor)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
-    containerView.backgroundColor = .systemGroupedBackground
+    containerView.backgroundColor = .white
     containerView.layer.cornerRadius = cornerRadius
     containerView.clipsToBounds = true
   }
@@ -79,6 +79,6 @@ class HealthTableHeaderView: UICollectionReusableView {
     helpLineLabel.text = "Helpline Centers in India"
     helpLineLabel.textColor = .systemPink
     helpLineLabel.textAlignment = .center
-    helpLineLabel.backgroundColor = .systemGroupedBackground
+    helpLineLabel.backgroundColor = .white
   }
 }

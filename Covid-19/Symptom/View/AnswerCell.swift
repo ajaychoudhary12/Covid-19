@@ -28,7 +28,7 @@ class AnswerCell: UICollectionViewCell {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     layer.cornerRadius = cornerRadius
     setupAnswerButton()
     setupShadow()

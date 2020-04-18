@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MainTabBarViewControllerDelegate {
+    func toggleLeftPanel()
+}
+
 class MainTabBarController: UITabBarController {
   
   var sidePanelDelegate: MainTabBarViewControllerDelegate?
@@ -45,7 +49,7 @@ class MainTabBarController: UITabBarController {
   //MARK: - Logic
   
   @objc private func profileAction() {
-      sidePanelDelegate?.toggleLeftPanel()
+    sidePanelDelegate?.toggleLeftPanel()
   }
 }
 
@@ -77,8 +81,4 @@ extension MainTabBarController {
     healthVC.tabBarItem.image = UIImage(named: "health")
     return UINavigationController(rootViewController: healthVC)
   }
-}
-
-protocol MainTabBarViewControllerDelegate {
-    func toggleLeftPanel()
 }

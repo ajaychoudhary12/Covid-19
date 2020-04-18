@@ -20,7 +20,7 @@ class SideMenuVC: UIViewController {
   private let cellId = "cellid"
   private let settings = [
     Setting(name: "Home", imageName: "globe"),
-    Setting(name: "Precaution", imageName: "globe"),
+    Setting(name: "Precautions", imageName: "globe"),
     Setting(name: "Helpline Contacts", imageName: "globe"),
     Setting(name: "Helpful Links", imageName: "globe")
   ]
@@ -163,14 +163,14 @@ extension SideMenuVC: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     switch indexPath.item {
-      case 0:
-        print("yeloow")
+      case 1:
+        let introVC = IntroVC()
+        present(introVC, animated: true)
       case 2:
         let contactsVC = ContactsVC()
         guard let parent = self.parent else { return }
         guard let navController = parent.navigationController else { return }
         navController.pushViewController(contactsVC, animated: true)
-    
       case 3:
         let helpfulLinksVC = HelpfulLinksVC()
         guard let parent = self.parent else { return }

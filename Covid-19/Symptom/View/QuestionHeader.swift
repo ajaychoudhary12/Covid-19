@@ -27,7 +27,7 @@ class QuestionHeader: UICollectionReusableView {
   }
   
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupQuestionLabel()
   }
   
@@ -41,7 +41,7 @@ class QuestionHeader: UICollectionReusableView {
     let bottom = questionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
     NSLayoutConstraint.activate([top, leading, trailing, bottom])
     
-    questionLabel.backgroundColor = .systemGroupedBackground
+    questionLabel.backgroundColor = .white
     questionLabel.numberOfLines = 0
     questionLabel.textColor = .systemPink
     questionLabel.font = .boldSystemFont(ofSize: 16)

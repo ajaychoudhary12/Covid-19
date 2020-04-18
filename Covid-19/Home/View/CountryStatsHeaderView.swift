@@ -49,7 +49,7 @@ class CountryStatsHeaderView: UICollectionReusableView {
   }
     
   private func setupView() {
-    backgroundColor = .systemGroupedBackground
+    backgroundColor = .white
     setupContainerView()
     setupCollectionView()
     setupPageControl()
@@ -85,7 +85,7 @@ class CountryStatsHeaderView: UICollectionReusableView {
     collectionView.delegate = self
     collectionView.dataSource = self
     collectionView.isPagingEnabled = true
-    collectionView.backgroundColor = .systemGroupedBackground
+    collectionView.backgroundColor = .white
     
     collectionView.layer.cornerRadius = cornerRadius
     collectionView.clipsToBounds = true

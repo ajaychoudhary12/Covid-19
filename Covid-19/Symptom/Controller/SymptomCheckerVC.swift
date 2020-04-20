@@ -83,13 +83,14 @@ class SymptomCheckerVC: UIViewController {
   
   //MARK: - Logic
   
-  private func checkSymptom(userAnswers: [String]) -> String {
+  private func checkSymptom(userAnswers: [String]) -> Result {
     if !(userAnswers[4].lowercased() == "none of the above") || userAnswers[5].lowercased() == "yes" || userAnswers[6].lowercased() == "yes" {
-      return "High Risk"
+      return .highRisk
     } else if userAnswers[7].lowercased() == "yes" && userAnswers[12].lowercased() == "yes" {
-      return "Medium Risk"
-    } else { return "Low Risk" }
+      return .mediumRisk
+    } else { return .lowRisk }
   }
+  
 }
 
   //MARK: - Extensions
@@ -125,24 +126,22 @@ extension SymptomCheckerVC: DidSelectItemDelegate {
       let indexPath = IndexPath(item: position, section: 0)
       collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     } else {
-      print(userAnswers)
-      let testVC = TestVC()
-      testVC.result = checkSymptom(userAnswers: userAnswers)
-      present(testVC, animated: true, completion: {
+      let resultVC = ResultVC()
+      resultVC.result = checkSymptom(userAnswers: userAnswers)
+      resultVC.modalPresentationStyle = .overFullScreen
+      resultVC.modalTransitionStyle = .crossDissolve
+      present(resultVC, animated: true, completion: {
         self.userAnswers = []
         self.position = 0
-        self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: false)
       })
     }
   }
 }
-class TestVC: UIViewController {
-  
-  var result = ""
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .black
-    print(result)
-  }
+
+enum Result: String {
+  case highRisk = "High Risk"
+  case mediumRisk = "Medium Risk"
+  case lowRisk = "Low Risk"
 }
+

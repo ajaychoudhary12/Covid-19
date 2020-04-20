@@ -44,21 +44,21 @@ class AboutUsVC: UIViewController {
     view.addSubview(appImage)
     appImage.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = appImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60)
+    let top = appImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
     let centerX = appImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-    let height = appImage.heightAnchor.constraint(equalToConstant: 80)
-    let width = appImage.widthAnchor.constraint(equalToConstant: 80)
+    let height = appImage.heightAnchor.constraint(equalToConstant: 170)
+    let width = appImage.widthAnchor.constraint(equalToConstant: 170)
     NSLayoutConstraint.activate([top, centerX, height, width])
     
-    appImage.backgroundColor = .lightGray
-    appImage.layer.cornerRadius = 80 / 2
+    appImage.image = UIImage(named: "icon")
+    appImage.layer.cornerRadius = 170 / 2
   }
   
   private func setupAppNameLabel() {
     view.addSubview(appNameLabel)
     appNameLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = appNameLabel.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 14)
+    let top = appNameLabel.topAnchor.constraint(equalTo: appImage.bottomAnchor)
     let leading = appNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     let trailing = appNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = appNameLabel.heightAnchor.constraint(equalToConstant: 30)

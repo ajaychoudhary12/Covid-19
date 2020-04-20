@@ -26,7 +26,6 @@ class HealthTableHeaderView: UICollectionReusableView {
   
   
   private func setupView() {
-    backgroundColor = .white
     setupParentContainerView()
     setupContainerView()
     setupHelpLineLabel()

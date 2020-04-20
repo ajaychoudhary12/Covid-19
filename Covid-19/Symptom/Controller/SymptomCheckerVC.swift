@@ -128,7 +128,11 @@ extension SymptomCheckerVC: DidSelectItemDelegate {
       print(userAnswers)
       let testVC = TestVC()
       testVC.result = checkSymptom(userAnswers: userAnswers)
-      present(testVC, animated: true)
+      present(testVC, animated: true, completion: {
+        self.userAnswers = []
+        self.position = 0
+        self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+      })
     }
   }
 }
@@ -139,5 +143,6 @@ class TestVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .black
+    print(result)
   }
 }

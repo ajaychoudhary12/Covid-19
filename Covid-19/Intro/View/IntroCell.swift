@@ -18,6 +18,7 @@ class IntroCell: UICollectionViewCell {
       guard let precaution = precaution else { return }
       backgroundColor = precaution.backgroundColor
       descriptionLabel.text = precaution.description
+      imageView.image = UIImage(named: precaution.imageName)
     }
   }
   
@@ -42,11 +43,11 @@ class IntroCell: UICollectionViewCell {
     
     let top = imageView.topAnchor.constraint(equalTo: topAnchor, constant: 66)
     let centerX = imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
-    let width = imageView.widthAnchor.constraint(equalToConstant: frame.width - 70)
-    let height = imageView.heightAnchor.constraint(equalToConstant: frame.width - 70)
+    let width = imageView.widthAnchor.constraint(equalToConstant: frame.width - 80)
+    let height = imageView.heightAnchor.constraint(equalToConstant: frame.width - 80)
     NSLayoutConstraint.activate([top, centerX, width, height])
-    
-    imageView.backgroundColor = .systemBlue
+    imageView.backgroundColor = .white
+    imageView.layer.cornerRadius = 26
   }
   
   private func setupDescriptionLabel() {
@@ -60,7 +61,7 @@ class IntroCell: UICollectionViewCell {
     NSLayoutConstraint.activate([top, centerX, width, height])
     
     descriptionLabel.font = .boldSystemFont(ofSize: 20)
-    descriptionLabel.textColor = .systemPink
+    descriptionLabel.textColor = .white
     descriptionLabel.textAlignment = .center
     descriptionLabel.numberOfLines = 2
   }

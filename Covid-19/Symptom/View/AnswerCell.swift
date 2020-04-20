@@ -36,7 +36,7 @@ class AnswerCell: UICollectionViewCell {
   
   private func setupShadow() {
     layer.cornerRadius = cornerRadius
-    layer.shadowColor = UIColor.lightGray.cgColor
+    layer.shadowColor = UIColor.init(white: 0.7, alpha: 0.6).cgColor
     layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
     layer.shadowRadius = cornerRadius
     layer.shadowOpacity = 0.5

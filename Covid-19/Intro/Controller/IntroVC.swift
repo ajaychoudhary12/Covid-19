@@ -18,13 +18,15 @@ class IntroVC: UIViewController {
   }()
   
   private let pageControl = UIPageControl()
+  private let closeSkipButton = UIButton(type: .system)
   private let cellId = "cellid"
+  
   private let precautions = [
-    Precaution(imageName: "", description: "Wash Your\nHands Thoroughly", backgroundColor: .white),
-    Precaution(imageName: "", description: "Use A Medical\nFace Mask", backgroundColor: .white),
-    Precaution(imageName: "", description: "Use Alcohol\nBased Gel", backgroundColor: .white),
-    Precaution(imageName: "", description: "14 - Day\nSelf Qurantine", backgroundColor: .white),
-    Precaution(imageName: "", description: "Avoid\nPhysical Contact", backgroundColor: .white)
+    Precaution(imageName: "HandWash", description: "Wash Your\nHands Thoroughly", backgroundColor: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)),
+    Precaution(imageName: "Mask", description: "Use A Medical\nFace Mask", backgroundColor: #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)),
+    Precaution(imageName: "Sainitizer", description: "Use Alcohol\nBased Gel", backgroundColor: #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)),
+    Precaution(imageName: "Calender", description: "14 - Day\nSelf Qurantine", backgroundColor: #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)),
+    Precaution(imageName: "HandShake", description: "Avoid\nPhysical Contact", backgroundColor: #colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 1))
   ]
   
   override func loadView() {
@@ -36,6 +38,7 @@ class IntroVC: UIViewController {
     view.backgroundColor = .white
     setupCollectionView()
     setupPageControl()
+    setupCloseSkipButton()
   }
   
   private func setupCollectionView() {
@@ -69,8 +72,30 @@ class IntroVC: UIViewController {
 
     pageControl.currentPage = 0
     pageControl.numberOfPages = 5
-    pageControl.currentPageIndicatorTintColor = .darkGray
-    pageControl.pageIndicatorTintColor = .lightGray
+    pageControl.currentPageIndicatorTintColor = .white
+    pageControl.pageIndicatorTintColor = UIColor.init(white: 1, alpha: 0.4)
+  }
+  
+  private func setupCloseSkipButton() {
+    view.addSubview(closeSkipButton)
+    closeSkipButton.translatesAutoresizingMaskIntoConstraints = false
+    
+    let top = closeSkipButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 2)
+    let trailing = closeSkipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+    let height = closeSkipButton.heightAnchor.constraint(equalToConstant: 50)
+    let width = closeSkipButton.widthAnchor.constraint(equalToConstant: 60)
+    NSLayoutConstraint.activate([top, trailing, height, width])
+    
+    closeSkipButton.setTitle("Skip", for: .normal)
+    closeSkipButton.titleLabel?.font = .systemFont(ofSize: 17)
+    closeSkipButton.setTitleColor(.white, for: .normal)
+    closeSkipButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+  }
+  
+  //MARK: - Actions
+  
+  @objc private func closeAction() {
+    self.dismiss(animated: true)
   }
   
 }
@@ -102,6 +127,13 @@ extension IntroVC: UICollectionViewDelegateFlowLayout {
     let x = targetContentOffset.pointee.x
     let currentPage = Int(x / collectionView.frame.width)
     pageControl.currentPage = currentPage
+    if currentPage == 4 {
+      closeSkipButton.setTitle("Close", for: .normal)
+      collectionView.backgroundColor = #colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 1)
+    } else {
+      closeSkipButton.setTitle("Skip", for: .normal)
+      collectionView.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+    }
   }
   
 }

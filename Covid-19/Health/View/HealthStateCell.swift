@@ -42,7 +42,7 @@ class HealthStateCell: UICollectionViewCell {
     layer.shadowColor = UIColor.darkGray.cgColor
     layer.shadowOffset = CGSize(width: 5, height: 5)
     layer.shadowRadius = cornerRadius
-    layer.shadowOpacity = 0.5
+    layer.shadowOpacity = 0.7
     
     contentView.layer.cornerRadius = cornerRadius
     contentView.clipsToBounds = true

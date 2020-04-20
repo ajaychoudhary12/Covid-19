@@ -25,10 +25,10 @@ class SideMenuVC: UIViewController {
   
   private let cellId = "cellid"
   private let settings = [
-    Setting(name: "Home", imageName: "globe"),
-    Setting(name: "Precautions", imageName: "globe"),
-    Setting(name: "Helpline Contacts", imageName: "globe"),
-    Setting(name: "Helpful Links", imageName: "globe")
+    Setting(name: "Home", imageName: "home-pink"),
+    Setting(name: "Precautions", imageName: "precaution"),
+    Setting(name: "Helpline Contacts", imageName: "telephone"),
+    Setting(name: "Helpful Links", imageName: "link")
   ]
   
   override func loadView() {
@@ -58,21 +58,22 @@ class SideMenuVC: UIViewController {
     appImage.translatesAutoresizingMaskIntoConstraints = false
     
     let top = appImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)
-    let leading = appImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18)
-    let height = appImage.heightAnchor.constraint(equalToConstant: 70)
-    let width = appImage.widthAnchor.constraint(equalToConstant: 70)
+    let leading = appImage.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+    let height = appImage.heightAnchor.constraint(equalToConstant: 150)
+    let width = appImage.widthAnchor.constraint(equalToConstant: 150)
     NSLayoutConstraint.activate([top, leading, height, width])
     
-    appImage.layer.cornerRadius = 35
-    appImage.backgroundColor = .systemGreen
+    appImage.layer.cornerRadius = 150 / 2
+    appImage.contentMode = .scaleAspectFill
+    appImage.image = UIImage(named: "icon")
   }
   
   private func setupAppNameLabel() {
     view.addSubview(appNameLabel)
     appNameLabel.translatesAutoresizingMaskIntoConstraints = false
     
-    let top = appNameLabel.topAnchor.constraint(equalTo: appImage.bottomAnchor, constant: 20)
-    let leading = appNameLabel.leadingAnchor.constraint(equalTo: appImage.leadingAnchor)
+    let top = appNameLabel.topAnchor.constraint(equalTo: appImage.bottomAnchor)
+    let leading = appNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18)
     let trailing = appNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     let height = appNameLabel.heightAnchor.constraint(equalToConstant: 29)
     NSLayoutConstraint.activate([top, leading, trailing, height])
@@ -177,7 +178,7 @@ extension SideMenuVC: UICollectionViewDataSource {
         toggleOffSideMenu()
       case 1:
         let introVC = IntroVC()
-        present(introVC, animated: true)
+        present(introVC, animated: true) { collectionView.reloadData() }
       case 2:
         let contactsVC = ContactsVC()
         guard let parent = self.parent else { return }

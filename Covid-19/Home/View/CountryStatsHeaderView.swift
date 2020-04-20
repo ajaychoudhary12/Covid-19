@@ -22,7 +22,7 @@ class CountryStatsHeaderView: UICollectionReusableView {
   }()
   
   private let containerView = UIView()
-  private let cornerRadius: CGFloat = 34
+  private let cornerRadius: CGFloat = 24
   private let pageControl = UIPageControl()
   private let cellId = "cellid"
   private var countryDataCard = [CountryDataCard]()

@@ -9,7 +9,7 @@ Get the latest stats about the coronavirus spread in India. The app also provide
 3. A symptom checker that you can fill up to check the risk of coronavirus.
 
 ## Screenshots
-<img src = "Screenshots/1.jpg" width = "180">  &nbsp; &nbsp; <img src = "Screenshots/2.jpg" width = "180"> &nbsp; &nbsp; <img src = "Screenshots/3.jpg" width = "180"> &nbsp; &nbsp; <img src = "Screenshots/4..jpg" width = "180">
+<img src = "Screenshots/1.png" width = "180">  &nbsp; &nbsp; <img src = "Screenshots/2.png" width = "180"> &nbsp; &nbsp; <img src = "Screenshots/3.png" width = "180"> &nbsp; &nbsp; <img src = "Screenshots/4.png" width = "180">
 
 ## How to build/compile
 1. Open "Food and Recipe.xcodeproj" file.

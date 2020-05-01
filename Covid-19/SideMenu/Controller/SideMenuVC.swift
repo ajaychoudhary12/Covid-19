@@ -190,7 +190,7 @@ extension SideMenuVC: UICollectionViewDataSource {
         guard let navController = parent.navigationController else { return }
         navController.pushViewController(helpfulLinksVC, animated: true)
       default:
-        print("yo")
+        print("No default Case")
     }
   }
 }

@@ -86,7 +86,7 @@
 		2D25ECB024389EAB007BD169 /* CountryDataCardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataCardState.swift; sourceTree = "<group>"; };
 		2D25ECB32438DAD8007BD169 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		2D25ECB52438DD0B007BD169 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		2D2997A3243625CC00AB4C7A /* Covid-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D2997A3243625CC00AB4C7A /* Coronavirus Tracker India.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coronavirus Tracker India.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D2997A6243625CC00AB4C7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D2997A8243625CD00AB4C7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2D2997AA243625CD00AB4C7A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 		2D2997A4243625CC00AB4C7A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D2997A3243625CC00AB4C7A /* Covid-19.app */,
+				2D2997A3243625CC00AB4C7A /* Coronavirus Tracker India.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -621,7 +621,7 @@
 			);
 			name = "Covid-19";
 			productName = "Covid-19";
-			productReference = 2D2997A3243625CC00AB4C7A /* Covid-19.app */;
+			productReference = 2D2997A3243625CC00AB4C7A /* Coronavirus Tracker India.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -910,16 +910,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 59S6RTNR57;
 				INFOPLIST_FILE = "Covid-19/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ajaychoudhary.Covid-19";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ajaychoudhary.Coronavirus-Tracker-India";
+				PRODUCT_NAME = "Coronavirus Tracker India";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -929,16 +932,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 59S6RTNR57;
 				INFOPLIST_FILE = "Covid-19/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ajaychoudhary.Covid-19";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ajaychoudhary.Coronavirus-Tracker-India";
+				PRODUCT_NAME = "Coronavirus Tracker India";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

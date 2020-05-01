@@ -7,5 +7,5 @@ target 'Covid-19' do
 
   # Pods for Covid-19
 pod "SwiftChart"
-pod 'AFNetworking', '~> 3.0’
+pod 'AFNetworking', '~> 4.0'
 end

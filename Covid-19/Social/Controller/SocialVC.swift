@@ -25,7 +25,7 @@ class SocialVC: UIViewController {
   private var side: CGFloat!
   private let cellId = "cellid"
   private let cvCornerRadius: CGFloat = 20
-  private let urls = ["https://twitter.com/MoHFW_INDIA", "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/events-as-they-happen"]// "https://www.thehindu.com/topic/coronavirus"]
+  private let urls = ["https://twitter.com/MoHFW_INDIA", "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/events-as-they-happen"]
   
   private var activityIndicatorContainer: UIView!
   private var activityIndicator: UIActivityIndicatorView!

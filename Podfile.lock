@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - SwiftChart (1.0.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.0)
+  - AFNetworking (~> 4.0)
   - SwiftChart
 
 SPEC REPOS:
@@ -26,9 +26,9 @@ SPEC REPOS:
     - SwiftChart
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
 
-PODFILE CHECKSUM: 4b5166702507642a4e5a7dd7b58d00cd8a976d9f
+PODFILE CHECKSUM: 184c31b215b0ae4a9a0b5652174dee505fc47051
 
 COCOAPODS: 1.8.4

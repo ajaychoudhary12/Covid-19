@@ -12,7 +12,7 @@ Get the latest stats about the coronavirus spread in India. The app also provide
 <img src = "Screenshots/1.png" width = "180">  &nbsp; &nbsp; <img src = "Screenshots/2.png" width = "180"> &nbsp; &nbsp; <img src = "Screenshots/3.png" width = "180"> &nbsp; &nbsp; <img src = "Screenshots/4.png" width = "180">
 
 ## How to build/compile
-1. Open "Food and Recipe.xcodeproj" file.
+1. Open "Covid-19.xcworkspace" file.
 2. Select appropriate simulator.
 3. Click the run button or command + R to run the project.
 

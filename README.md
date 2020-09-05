@@ -21,4 +21,4 @@ Get the latest stats about the coronavirus spread in India. The app also provide
 2. Swift 5
 
 ## License
-This code is free and open source and I have build this project for my udacity submission.
+This code is free and open source and I have build this as my side project.
